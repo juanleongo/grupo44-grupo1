@@ -43,7 +43,6 @@ crossorigin="anonymous">
             Cerrar Sesión
         </a>
     </nav>
-
     <div class="grande">
         <div class="menu">
             <a href="usuarios.jsp" class="opcion">
@@ -52,7 +51,6 @@ crossorigin="anonymous">
                 </div>
                 Usuarios
             </a>
-
             <a href="" class="opcion">
                 <div>
                     <img src="img/clientes.png" alt="">

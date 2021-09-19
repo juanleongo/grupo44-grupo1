@@ -9,7 +9,6 @@ public class UsuariosDTO {
 	private String usuario;
 	
 	public UsuariosDTO(double cedula, String email, String nombre, String password, String usuario) {
-	
 		this.cedula = cedula;
 		this.email = email;
 		this.nombre = nombre;
@@ -17,6 +16,8 @@ public class UsuariosDTO {
 		this.usuario = usuario;
 	}
 
+	
+	
 	public double getCedula() {
 		return cedula;
 	}
