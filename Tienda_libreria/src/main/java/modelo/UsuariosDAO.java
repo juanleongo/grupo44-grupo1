@@ -9,10 +9,6 @@ import javax.swing.JOptionPane;
 
 import controlador.Conexion;
 
-   
-
-
-
 
 public class UsuariosDAO {
 	
