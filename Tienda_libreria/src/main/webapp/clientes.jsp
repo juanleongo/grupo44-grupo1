@@ -5,13 +5,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>CLIENTES</title>
-</head>
+</head> 
 <body>
 <div class="container">
         <h1>CLIENTES </h1>
         <form action="Login" method="post">
             <h2>Registrar </h2>
-            <div><label for="cedula">Cedula: </label><input type="number" name="cedula" value=""></div>
+            <div><label for="cedula">Cedula </label><input type="number" name="cedula" value=""></div>
             <input type="hidden" name="ced" value="">
             <div><label for="nombre">Nombre: </label><input type="text" name="nombre" value=""></div>
             <div><label for="telefono">Direccion: </label><input type="text" name="password" value=""></div>

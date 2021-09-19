@@ -21,11 +21,11 @@ estado="disabled";
 }
 
 %>
-
  <div class="container">
         <h1>Usuarios </h1>
+        
         <form action="Login" method="post">
-            <h2>Registrar </h2>
+           <h2>Registrar </h2>
             <div><label for="cedula">Cedula: </label><input type="number" name="cedula" value="<%=cedula%>"<%=estado%>></div>
             <input type="hidden" name="ced" value="<%=cedula%>">
             <div><label for="nombre">Nombre: </label><input type="text" name="nombre" value="<%=nombre%>"></div>
@@ -37,7 +37,7 @@ estado="disabled";
                 <input type="submit" name="actualizar" value="Actualizar">
                 <input type="submit" name="eliminar" value="Eliminar">
             </div>
-
+    
         </form>
         <div class="busqueda">
             <form action="Login" method="post">

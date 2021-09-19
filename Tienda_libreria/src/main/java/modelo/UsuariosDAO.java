@@ -34,6 +34,7 @@ public class UsuariosDAO {
 			return resul;
 		}
 		
+		
 		public UsuariosDTO Buscar_Usuario(double cedula) {
 			
 			UsuariosDTO usu=null;
