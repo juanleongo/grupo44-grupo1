@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
 
 
+import modelo.UsuariosDAO;
+import modelo.UsuariosDTO;
+
 
 /**
  * Servlet implementation class Login
@@ -42,7 +45,75 @@ public class Login extends HttpServlet {
 				JOptionPane.showMessageDialog(null,"DATOS ERRONEOS");
 				response.sendRedirect("index.jsp");
 			}
+			
+			
+			
+		}
+		
+		UsuariosDAO usuDAO = new UsuariosDAO();
+		
+		if(request.getParameter("insertar")!=null) {
+			String nombre,password,usuario,email;
+			Double cedula;
+			cedula =Double.parseDouble(request.getParameter("cedula"));
+			nombre = request.getParameter("nombre");
+			password = request.getParameter("password");
+			usuario= request.getParameter("usuario");
+			email = request.getParameter("email");
+			UsuariosDTO usu= new UsuariosDTO(cedula,nombre,password,usuario,email);
+			if(usuDAO.Inserta_Usuario(usu)) {
+				//JOptionPane.showMessageDialog(null, "Se Registro el Usuario Exitosamente!!");
+				response.sendRedirect("usuarios.jsp?men=Se Registro el Usuario Exitosamente!!");
+			}else {
+				//JOptionPane.showMessageDialog(null, "No se Registro el Usuario.....");
+				response.sendRedirect("usuarios.jsp?men=No se Registro el  Usuario.....");
+			}
+			
+		}
+		
+		if(request.getParameter("consultar")!=null) {
+			
+			Double cedula=Double.parseDouble(request.getParameter("cedu"));
+			UsuariosDTO usu=usuDAO.Buscar_Usuario(cedula);
+			if(usu!=null) {
+			String nombre,password,usuario,email;
+			cedula=usu.getCedula();
+			nombre=usu.getNombre();
+			password=usu.getPassword();
+			usuario=usu.getUsuario();
+			email=usu.getEmail();
+			response.sendRedirect("usuarios.jsp? formulario="+cedula+"&&formulario="+nombre+"&&formulario="
+					+password+"&&formulario="+usuario+"&&formulario="+email);
+			}else
+			{
+				JOptionPane.showMessageDialog(null, "El Usuario no Existe");
+				response.sendRedirect("usuarios.jsp");
+			}
+		}
+		
+		if(request.getParameter("actualizar")!=null) {
+			String nombre,password,usuario,email;
+			Double cedula;
+			cedula =Double.parseDouble(request.getParameter("ced"));
+			nombre = request.getParameter("nombre");
+			password = request.getParameter("password");
+			usuario= request.getParameter("usuario");
+			email = request.getParameter("email");
+			UsuariosDTO usu= new UsuariosDTO(cedula,nombre,password,usuario,email);
+			if(usuDAO.Actualiza_Usuario(usu)) {
+				//JOptionPane.showMessageDialog(null, "Se Actualizo el Usuario exitosamente!!!");
+				response.sendRedirect("usuarios.jsp?men=Se Actualizo el Usuario exitosamente!!");
+			}else {
+				//JOptionPane.showMessageDialog(null, "No se Actualizo el Usuario.....");
+				response.sendRedirect("usuarios.jsp?men=No se Actualizo el Usuario.....");
+			}
+			
 		}
 	}
+		
+		
+		
+	}
 
-}
+
+
