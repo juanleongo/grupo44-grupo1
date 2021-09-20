@@ -1,12 +1,96 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>USUARIOS</title>
+<meta charset="UTF-8">
+<title>Book City - Usuarios</title>
+<!------------ ESTILOS  ----------------->
+<link rel="stylesheet" href="css/usuariosClientes.css">
+<link rel="stylesheet" href="css/general.css">
+
+
+<!------------ FUENTES ----------------->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;
+0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;
+1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<!------------ FLATICON ----------------->
+    <link rel="shortcut icon" href="img/books.png" type="image/x-icon">
+ 
+<!------------ BOOTSTRAP ---------------->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" 
+rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" 
+crossorigin="anonymous">
+
+<!------------- FONTAWESOME ------------->
+    <script src="https://kit.fontawesome.com/3d8a730b5e.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<nav>
+        <a href="menu.jsp">
+            <div>
+            <img src="img/logo.png" alt="">
+            </div>
+        </a>
+
+        <a href="index.jsp" class="cerrar">
+            <i class="fas fa-sign-out-alt"></i>
+            Cerrar SesiÃ³n
+        </a>
+    </nav>
+    
+    <ul>
+        <li class="usuario">
+            <a href="usuarios.jsp" class="opcion">
+                Usuarios
+            </a>
+        </li>
+
+        <li>
+            <a href="Clientes.jsp" class="opcion">
+                Clientes
+            </a>
+        </li>
+
+        <li>
+
+            <a href="" class="opcion">
+                Proveedores
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="" class="opcion">
+                Productos
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="" class="opcion">
+                Ventas
+            </a>
+
+        </li>
+
+        <li>
+
+
+            <a href="" class="opcion">
+                Reporte
+            </a>
+        
+        </li>
+            
+        </ul>
+        
+        
 <%!String nombre="",password="",usuario="",email="", estado="";
 int cedula=0;
 %>
@@ -23,24 +107,30 @@ estado="disabled";
 
 
 %>
- <div class="container">
+ 
         <h1>Usuarios </h1>
+        <div class="contenedor">
+        <div class="izquierda">
+        <h2>Registrar </h2>
         
         <form action="Login" method="post">
-           <h2>Registrar </h2>
+           
             <div><label for="cedula">Cedula: </label><input type="number" name="cedula" value="<%=cedula%>"<%=estado%>></div>
             <input type="hidden" name="ced" value="<%=cedula%>">
             <div><label for="nombre">Nombre: </label><input type="text" name="nombre" value="<%=nombre%>"></div>
-            <div><label for="telefono">Contraseña: </label><input type="text" name="password" value="<%=password%>"></div>
+            <div><label for="telefono">ContraseÃ±a: </label><input type="text" name="password" value="<%=password%>"></div>
               <div><label for="mail" >E-mail: </label><input type="email" name="email"  value="<%=email%>"></div>
             <div><label for="direccion">Usuario: </label><input type="text" name="usuario"  value="<%=usuario%>"></div>
           
-            <div><input type="submit" name="insertar" value="Registrar">
+            <div class="botones">
+            <input type="submit" name="insertar" value="Registrar">
                 <input type="submit" name="actualizar" value="Actualizar">
                 <input type="submit" name="eliminar" value="Eliminar">
             </div>
     
         </form>
+        </div>
+        <div class="busquedaResultados">
         <div class="busqueda">
             <form action="Login" method="post">
                 <fieldset>
@@ -51,9 +141,12 @@ estado="disabled";
             </form>
 
         </div>
+        
 
         <div>
-            <textarea name="formulario" rows="10" cols="40">Escribe aquí .</textarea>
+            <textarea name="formulario" rows="10" cols="40"></textarea>
+        </div>
+        
         </div>
 
     </div>
@@ -63,5 +156,13 @@ String mensaje=request.getParameter("men");
 out.print("<script>alert('"+mensaje+"');</script>");
 }
 %>
+
+<footer >
+    <div>
+    Â© 2021 Copyright
+    </div>
+    </footer>
+    
+    
 </body>
 </html>
