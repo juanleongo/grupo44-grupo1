@@ -41,6 +41,7 @@ public class UsuariosDAO {
 			try {
 			String sql="select * from usuarios where cedula_ussario=?";
 			ps=conec.prepareStatement(sql);
+			
 			ps.setDouble(1,cedula);
 			res=ps.executeQuery();
 			while(res.next()) {
@@ -51,7 +52,7 @@ public class UsuariosDAO {
 			}
 			return usu;
 		}
-		
+			
 		
 		public boolean Actualiza_Usuario(UsuariosDTO usu) {
 			boolean resul=false;
@@ -69,6 +70,19 @@ public class UsuariosDAO {
 			}
 			return resul;
 		}
-
+		public boolean Eliminar_Usuario(double cedula) {
+			boolean resul = false;
+			try {
+				String sql ="delete from usuario where cedula=?";
+				ps=conec.prepareStatement(sql);
+				ps.setDouble(1, cedula);
+				resul=ps.executeUpdate()>0;
+				
+			}catch(SQLException Q) {
+				JOptionPane.showMessageDialog(null, "Error de eliminacio"+Q);
+			}
+			return resul;
+				
+			}
 }
 

@@ -104,6 +104,20 @@ public class Login extends HttpServlet {
 			}
 			
 		}
+		if(request.getParameter("eliminar")!=null){
+			double cedula;
+			cedula=request.getParameter("ced"); // Hidden name= ced
+			int op=JOptionPane.showConfirmDialog(null,"Desea Eliminar Usuario ced: "+cedula);
+			if(op==0) { // si la opcion es si, marca 0 elimina
+				if (usuDAO.Eliminar_Usuario(cedula)) { 	
+				response.sendRedirect("usuarios.jsp?men=Usuario Eliminado");
+				}else {
+				response.sendRedirect("usuarios.jsp?men=Usuario No Eliminado");
+			}
+			}else {
+				response.sendRedirect("usuarios.jsp");  // si es no o cancelar asigana valor 1 o 2 y redirecciona al formulario de nuevo
+			}
+			}
 	}
 		
 		

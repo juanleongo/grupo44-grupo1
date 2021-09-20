@@ -67,9 +67,20 @@ package modelo;
 			}
 			return resul;
 		}
-
-
-
-	}
+	    public boolean Eliminar_Cliente(double cedula) {
+			boolean resul = false;
+			try {
+				String sql ="delete from Clientes where cedula=?";
+				ps=conec.prepareStatement(sql);
+				ps.setDouble(1, cedula);
+				resul=ps.executeUpdate()>0;
+				
+			}catch(SQLException Q) {
+				JOptionPane.showMessageDialog(null, "Error de eliminacio"+Q);
+			}
+			return resul;
+				
+			}
+}
 
 

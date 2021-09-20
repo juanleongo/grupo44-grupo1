@@ -86,12 +86,24 @@ public class Clientes extends HttpServlet {
 			}
 
 		}
+		if(request.getParameter("eliminar")!=null){
+			double cedula;
+			cedula=request.getParameter("cedu"); /* Hidden name= cedu*/
+			int op=JOptionPane.showConfirmDialog(null,"Desea Eliminar Clinte cedu: "+cedula);
+			if(op==0) { /* si la opcion es si, marca 0 elimina*/
+				if (cliente.Eliminar_Cliente(cedula)) {
+				response.sendRedirect("Clientes.jsp?men=Cliente Eliminado");
+				}else {
+				response.sendRedirect("Clientes.jsp?men=Cliente No Eliminado");
+			}
+			}else {
+				response.sendRedirect("Clientes.jsp");  /* si es no o cancelar asigana valor 1 o 2 y redirecciona al formulario de nuevo*/
+			}
+			}
+
 	}	
-		
-		
-		
-		
+
 		
 	}
 
-}
+			

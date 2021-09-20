@@ -5,19 +5,18 @@ public class UsuariosDTO {
 	private double cedula;
 	private String email;
 	private String nombre;
-	private String password;
+	private String contraseña;
 	private String usuario;
 	
-	public UsuariosDTO(double cedula, String email, String nombre, String password, String usuario) {
+	public UsuariosDTO(double cedula, String email, String nombre, String contraseña, String usuario) {
+	
 		this.cedula = cedula;
 		this.email = email;
 		this.nombre = nombre;
-		this.password = password;
+		this.contraseña = contraseña;
 		this.usuario = usuario;
 	}
 
-	
-	
 	public double getCedula() {
 		return cedula;
 	}
@@ -26,7 +25,7 @@ public class UsuariosDTO {
 		this.cedula = cedula;
 	}
 
-	public String getEmail() {
+public String getEmail() {
 		return email;
 	}
 
@@ -42,12 +41,12 @@ public class UsuariosDTO {
 		this.nombre = nombre;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getContraseña() {
+		return contraseña;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setContraseña(String contraseña) {
+		this.contraseña = contraseña;
 	}
 
 	public String getUsuario() {
@@ -57,6 +56,8 @@ public class UsuariosDTO {
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
+
+	
 	
 	
 }
