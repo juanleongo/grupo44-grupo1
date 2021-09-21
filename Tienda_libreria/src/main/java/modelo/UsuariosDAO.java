@@ -25,7 +25,7 @@ public class UsuariosDAO {
 			ps.setDouble(1, usu.getCedula());
 			ps.setString(2, usu.getEmail());
 			ps.setString(3, usu.getNombre());
-			ps.setString(4, usu.getPassword());
+			ps.setString(4, usu.getContraseña());
 			ps.setString(5, usu.getUsuario());
 			resul=ps.executeUpdate()>0;	
 			}catch(SQLException ex) {
@@ -62,7 +62,7 @@ public class UsuariosDAO {
 			ps.setDouble(1, usu.getCedula());
 			ps.setString(2, usu.getEmail());
 			ps.setString(3, usu.getNombre());
-			ps.setString(4, usu.getPassword());
+			ps.setString(4, usu.getContraseña());
 			ps.setString(5, usu.getUsuario());
 			resul=ps.executeUpdate()>0;	
 			}catch(SQLException ex) {
