@@ -51,7 +51,7 @@ public class Clientes extends HttpServlet {
 		
 		if(request.getParameter("consultar")!=null) {
 
-			Double cedula=Double.parseDouble(request.getParameter("cedu"));
+			Double cedula=Double.parseDouble(request.getParameter("cedula"));
 			ClientesDTO cli=cliente.Buscar_Cliente(cedula);
 			if(cli!=null) {
 			String nombre,direccion,telefono,email;
@@ -71,7 +71,7 @@ public class Clientes extends HttpServlet {
 		if(request.getParameter("actualizar")!=null) {
 			String nombre,direccion,telefono,email;
 			Double cedula;
-			cedula =Double.parseDouble(request.getParameter("ced"));
+			cedula =Double.parseDouble(request.getParameter("cedula"));
 			nombre = request.getParameter("nombre");
 			direccion = request.getParameter("direccion");
 			telefono= request.getParameter("telefono");
@@ -88,7 +88,7 @@ public class Clientes extends HttpServlet {
 		}
 		if(request.getParameter("eliminar")!=null){
 			double cedula;
-			cedula=request.getParameter("cedu"); /* Hidden name= cedu*/
+			cedula=Double.parseDouble(request.getParameter("cedula")); /* Hidden name= cedu*/
 			int op=JOptionPane.showConfirmDialog(null,"Desea Eliminar Clinte cedu: "+cedula);
 			if(op==0) { /* si la opcion es si, marca 0 elimina*/
 				if (cliente.Eliminar_Cliente(cedula)) {
