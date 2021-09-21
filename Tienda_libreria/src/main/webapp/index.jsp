@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Usuarios</title>
+<meta charset="UTF-8">
+<title>Book City</title>
 
 <!------------ ESTILOS  ----------------->
 <link rel="stylesheet" href="css/index.css"> 
@@ -40,8 +40,8 @@ crossorigin="anonymous">
             <img src="img/fondo.jpg" alt="">
 
             <div class="izquierda">
-                <h1>�Bienvenido!</h1>
-                <p>Una tienda especializada en la venta de libros de todo g�nero, encontraras desde libros infantiles hasta los cl�sicos m�s conocidos.
+                <h1>¡Bienvenido!</h1>
+                <p>Una tienda especializada en la venta de libros de todo género, encontraras desde libros infantiles hasta los clásicos más conocidos.
                 <p> Entra a nuestro sitio web y pide tus libros favoritos para que lleguen a la puerta de tu casa. 
                 </p>
                 <p class="ordena">Ordena Ya!!!</p> 
@@ -54,21 +54,21 @@ crossorigin="anonymous">
 
             <div class="derecha">
                 <h2>Bienvenido</h2>
-            <h3>Iniciar  sesi�n</h3>
+            <h3>Iniciar  sesión</h3>
             
            
-            <div class="form-floating m-3">
+            <div class="m-3">
               <label for="floatingInput">Usuario</label><input type="text"name ="usuario"class="form-control espacio" id="floatingInput" required>
               
                
             </div>
-            <div class="form-floating m-3">
-              <label for="floatingPassword">Contrase�a</label>
+            <div class="m-3">
+              <label for="floatingPassword">Contraseña</label>
                 <input type="password"name="clave"class="form-control espacio" id="floatingPassword"required>
                
             </div>
             <div class="botones">
-            <input type="submit"name="iniciar"  value="Iniciar Sesi�n">
+            <input type="submit"name="iniciar"  value="Iniciar Sesión">
             <input type="button" name="cancelar"value="Cancelar">
                 
             </div>
@@ -79,7 +79,7 @@ crossorigin="anonymous">
     
      <footer >
             <div>
-            � 2021 Copyright
+           © 2021 Copyright
             </div>
             </footer>
             

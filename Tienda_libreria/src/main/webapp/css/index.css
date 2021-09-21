@@ -125,7 +125,7 @@ section .derecha{
     justify-content: flex-end;
 }
 
-.botones input[type="reset"]{
+.botones input[type="button"]{
     background-color: var(--cream-brulee);
     color: black;
     padding: 10px;
@@ -135,7 +135,7 @@ section .derecha{
     transition: 0.4s;
 }
 
-.botones input[type="reset"]:hover{
+.botones input[type="button"]:hover{
     background-color: #f7dd7f;
 }
 
