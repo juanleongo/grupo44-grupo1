@@ -54,7 +54,7 @@ package modelo;
 	    public boolean Actualiza_Clientes(ClientesDTO lib) {
 			boolean resul=false;
 			try {
-			String sql="update clientes set direccion_ciente=?, email_cliente=?, nombre_cliente=?, telefono_cliente=? where cedula_clientes=?";
+			String sql="update clientes set direccion_ciente=?, email_cliente=?, nombre_cliente=?, telefono_cliente=? where cedula_cliente=?";
 			ps = conec.prepareStatement(sql);
 			ps.setString(1, lib.getDireccion());
 			ps.setString(2, lib.getEmail());

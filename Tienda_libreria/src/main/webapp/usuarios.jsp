@@ -30,7 +30,7 @@ crossorigin="anonymous">
 </head>
 <body>
 <nav>
-        <a href="menu.jsp">
+        <a href="principal.jsp">
             <div>
             <img src="img/logo.png" alt="">
             </div>

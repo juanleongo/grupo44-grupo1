@@ -76,7 +76,7 @@ public class Clientes extends HttpServlet {
 			direccion = request.getParameter("direccion");
 			telefono= request.getParameter("telefono");
 			email = request.getParameter("email");
-			ClientesDTO cli= new ClientesDTO(cedula,nombre,direccion,telefono,email);
+			ClientesDTO cli= new ClientesDTO(cedula,direccion,email,nombre,telefono);
 			if(cliente.Actualiza_Clientes(cli)) {
 				//JOptionPane.showMessageDialog(null, "Se Actualizo el cliente exitosamente!!!");
 				response.sendRedirect("Clientes.jsp?men=Se Actualizo el Cliente exitosamente!!");

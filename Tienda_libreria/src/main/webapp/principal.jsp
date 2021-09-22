@@ -51,7 +51,7 @@ crossorigin="anonymous">
                 </div>
                 Usuarios
             </a>
-            <a href="" class="opcion">
+            <a href="Clientes.jsp" class="opcion">
                 <div>
                     <img src="img/clientes.png" alt="">
                 </div>
