@@ -2,26 +2,27 @@ package modelo;
 
 public class ClientesDTO {
 	
-	private double cedula;
+	private int cedula;
+	private String direccion;
 	private String email;
 	private String nombre;
 	private String telefono;
-	private String direccion;
 	
-	public ClientesDTO(double cedula, String email, String nombre, String telefono, String direccion) {
 	
+	
+	public ClientesDTO(int cedula, String direccion, String email, String nombre, String telefono) {
 		this.cedula = cedula;
+		this.direccion = direccion;
 		this.email = email;
 		this.nombre = nombre;
 		this.telefono = telefono;
-		this.direccion = direccion;
 	}
 
-	public double getCedula() {
+	public int getCedula() {
 		return cedula;
 	}
 
-	public void setCedula(double cedula) {
+	public void setCedula(int cedula) {
 		this.cedula = cedula;
 	}
 

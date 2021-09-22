@@ -49,14 +49,16 @@ public class Login extends HttpServlet {
 		
 		if(request.getParameter("insertar")!=null) {
 			String nombre,password,usuario,email;
-			Double cedula;
-			cedula =Double.parseDouble(request.getParameter("cedula"));
+			int cedula;
+			cedula =Integer.parseInt(request.getParameter("cedula"));
 			nombre = request.getParameter("nombre");
 			password = request.getParameter("password");
 			email = request.getParameter("email");
 			usuario= request.getParameter("usuario");
 			
-			UsuariosDTO usu= new UsuariosDTO(cedula,nombre,password,usuario,email);
+			
+			
+			UsuariosDTO usu= new UsuariosDTO(cedula,nombre,password,email,usuario);
 			if(usuDAO.Inserta_Usuario(usu)) {
 				//JOptionPane.showMessageDialog(null, "Se Registro el Usuario Exitosamente!!");
 				response.sendRedirect("usuarios.jsp?men=Se Registro el Usuario Exitosamente!!");
@@ -69,17 +71,17 @@ public class Login extends HttpServlet {
 		
 		if(request.getParameter("consultar")!=null) {
 			
-			Double cedula=Double.parseDouble(request.getParameter("cedula"));
+			int cedula=Integer.parseInt(request.getParameter("cedu"));
 			UsuariosDTO usu=usuDAO.Buscar_Usuario(cedula);
 			if(usu!=null) {
 			String nombre,password,usuario,email;
 			cedula=usu.getCedula();
 			nombre=usu.getNombre();
 			password=usu.getContraseña();
-			email=usu.getEmail();
 			usuario=usu.getUsuario();
-			response.sendRedirect("usuarios.jsp?formulario="+cedula+"&&formulario="+nombre+"&&formulario="
-					+password+"&&formulario="+usuario+"&&formulario="+email);
+			email=usu.getEmail();
+			response.sendRedirect("usuarios.jsp?cedula="+cedula+"&&nombre="+nombre+"&&password="
+					+password+"&&email="+email+"&&usuario="+usuario);
 			}else
 			{
 				JOptionPane.showMessageDialog(null, "El Usuario no Existe");
@@ -89,14 +91,14 @@ public class Login extends HttpServlet {
 		
 		if(request.getParameter("actualizar")!=null) {
 			String nombre,password,usuario,email;
-			Double cedula;
-			cedula =Double.parseDouble(request.getParameter("cedula"));
+			int cedula;
+			cedula =Integer.parseInt(request.getParameter("ced"));
 			nombre = request.getParameter("nombre");
 			password = request.getParameter("password");
 			email = request.getParameter("email");
 			usuario= request.getParameter("usuario");
 			
-			UsuariosDTO usu= new UsuariosDTO(cedula,nombre,password,usuario,email);
+			UsuariosDTO usu= new UsuariosDTO(cedula,nombre,password,email,usuario);
 			if(usuDAO.Actualiza_Usuario(usu)) {
 				//JOptionPane.showMessageDialog(null, "Se Actualizo el Usuario exitosamente!!!");
 				response.sendRedirect("usuarios.jsp?men=Se Actualizo el Usuario exitosamente!!");
@@ -107,8 +109,8 @@ public class Login extends HttpServlet {
 			
 		}
 		if(request.getParameter("eliminar")!=null){
-			double cedula;
-			cedula=Double.parseDouble(request.getParameter("cedula")); // Hidden name= ced
+			int cedula;
+			cedula=Integer.parseInt(request.getParameter("ced")); // Hidden name= ced
 			int op=JOptionPane.showConfirmDialog(null,"Desea Eliminar Usuario ced: "+cedula);
 			if(op==0) { // si la opcion es si, marca 0 elimina
 				if (usuDAO.Eliminar_Usuario(cedula)) { 	

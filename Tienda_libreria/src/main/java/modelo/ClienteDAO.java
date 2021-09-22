@@ -22,7 +22,7 @@ package modelo;
 			try {
 			String sql="insert into clientes values(?,?,?,?,?)";
 			ps = conec.prepareStatement(sql);
-			ps.setDouble(1, lib.getCedula());
+			ps.setInt(1, lib.getCedula());
 			ps.setString(2, lib.getDireccion());
 			ps.setString(3, lib.getEmail());
 			ps.setString(4, lib.getNombre());
@@ -34,16 +34,16 @@ package modelo;
 		    return resul;   
 	     }
 		
-	    public ClientesDTO Buscar_Cliente(Double cedula) {
+	    public ClientesDTO Buscar_Cliente(int cedula) {
 	    	
 	    	ClientesDTO lib=null;
 	    	try {
-	    	String sql="Select * from libro where cedula_cliente=?";
+	    	String sql="select * from clientes where cedula_cliente=?";
 	    	ps=conec.prepareStatement(sql);
-	    	ps.setDouble(1, cedula);
+	    	ps.setInt(1, cedula);
 	    	res=ps.executeQuery();
 	    	while(res.next()) {
-	    		lib= new ClientesDTO(res.getDouble(1),res.getString(2),res.getString(3),res.getString(4), res.getString(5));
+	    		lib= new ClientesDTO(res.getInt(1),res.getString(2),res.getString(3),res.getString(4), res.getString(5));
 	    	}
 	    	}catch(SQLException ex) {
 	    		JOptionPane.showMessageDialog(null, "Error al Consultar"+ ex);
@@ -60,23 +60,23 @@ package modelo;
 			ps.setString(2, lib.getEmail());
 			ps.setString(3, lib.getNombre());
 			ps.setString(4, lib.getTelefono());
-			ps.setDouble(5, lib.getCedula());
+			ps.setInt(5, lib.getCedula());
 			resul=ps.executeUpdate()>0;
 			}catch(SQLException ex) {
 				JOptionPane.showMessageDialog(null,"Error al Actualizar el cliente"+ex);
 			}
 			return resul;
 		}
-	    public boolean Eliminar_Cliente(double cedula) {
+	    public boolean Eliminar_Cliente(int cedula) {
 			boolean resul = false;
 			try {
-				String sql ="delete from Clientes where cedula=?";
+				String sql ="delete from clientes where cedula=?";
 				ps=conec.prepareStatement(sql);
-				ps.setDouble(1, cedula);
+				ps.setInt(1, cedula);
 				resul=ps.executeUpdate()>0;
 				
 			}catch(SQLException Q) {
-				JOptionPane.showMessageDialog(null, "Error de eliminacio"+Q);
+				JOptionPane.showMessageDialog(null, "Error de eliminacion"+Q);
 			}
 			return resul;
 				

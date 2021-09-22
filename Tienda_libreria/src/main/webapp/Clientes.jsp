@@ -108,12 +108,14 @@ estado="disabled";
         <h2>Registrar </h2>
         <form action="Clientes" method="post">
             
-            <div><label for="cedula">Cedula: </label><input type="text" name="cedula" value="<%=cedula%>"<%=estado%>></div>
-            <input type="hidden" name="cedu" value="<%=cedula%>">
-            <div><label for="nombre">Nombre: </label><input type="text" name="nombre" value="<%=nombre%>"></div>
-            <div><label for="telefono">Telefono: </label><input type="number" name="tel" value="<%=telefono%>"></div>
-            <div><label for="direccion">Direccion: </label><input type="text" name="direccion" value="<%=direccion%>"></div>
-            <div><label for="mail" >E-mail: </label><input type="email" name="email" value="<%=email%>"></div>
+            <div><label>Cedula: </label><input type="number" name="cedula" value="<%=cedula%>"<%=estado%>></div>
+            <input type="hidden" name="ced" value="<%=cedula%>">
+            <div><label>Direccion: </label><input type="text" name="direccion" value="<%=direccion%>"></div>
+            <div><label>E-mail: </label><input type="email" name="email" value="<%=email%>"></div>
+            <div><label>Nombre: </label><input type="text" name="nombre" value="<%=nombre%>"></div>
+            <div><label>Telefono: </label><input type="text" name="tel" value="<%=telefono%>"></div>
+            
+            
            
             
              <div class="botones">
@@ -137,10 +139,6 @@ estado="disabled";
             </form>
             </div>
 
-        <div>
-            
-            <textarea name="formulario" rows="10" cols="40"></textarea>
-        </div>
         
         </div>
 

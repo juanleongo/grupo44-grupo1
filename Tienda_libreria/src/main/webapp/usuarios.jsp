@@ -91,14 +91,14 @@ crossorigin="anonymous">
         </ul>
         
         
-<%!String nombre="",password="",usuario="",email="", estado="";
+<%!String nombre="",contraseña="",usuario="",email="", estado="";
 int cedula=0;
 %>
 <%
 if(request.getParameter("cedula")!=null){
 cedula=Integer.parseInt(request.getParameter("cedula"));
 nombre = request.getParameter("nombre");
-password = request.getParameter("password");
+contraseña = request.getParameter("contraseña");
 usuario= request.getParameter("usuario");
 email = request.getParameter("email");
 estado="disabled";
@@ -115,12 +115,12 @@ estado="disabled";
         
         <form action="Login" method="post">
            
-            <div><label for="cedula">Cedula: </label><input type="number" name="cedula" value="<%=cedula%>"<%=estado%>></div>
+            <div><label>Cedula: </label><input type="number" name="cedula" value="<%=cedula%>"<%=estado%>></div>
             <input type="hidden" name="ced" value="<%=cedula%>">
-            <div><label for="nombre">Nombre: </label><input type="text" name="nombre" value="<%=nombre%>"></div>
-            <div><label for="telefono">Contraseña: </label><input type="text" name="password" value="<%=password%>"></div>
-              <div><label for="mail" >E-mail: </label><input type="email" name="email"  value="<%=email%>"></div>
-            <div><label for="direccion">Usuario: </label><input type="text" name="usuario"  value="<%=usuario%>"></div>
+            <div><label>Nombre: </label><input type="text" name="nombre" value="<%=nombre%>"></div>
+            <div><label>Contraseña: </label><input type="password" name="password" value="<%=contraseña%>"></div>
+              <div><label>E-mail </label><input type="email" name="email"  value="<%=email%>"></div>
+            <div><label>Usuario</label><input type="text" name="usuario"  value="<%=usuario%>"></div>
           
             <div class="botones">
             <input type="submit" name="insertar" value="Registrar">
@@ -143,9 +143,6 @@ estado="disabled";
         </div>
         
 
-        <div>
-            <textarea name="formulario" rows="10" cols="40"></textarea>
-        </div>
         
         </div>
 
