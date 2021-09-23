@@ -70,7 +70,7 @@ package modelo;
 	    public boolean Eliminar_Cliente(int cedula) {
 			boolean resul = false;
 			try {
-				String sql ="delete from clientes where cedula=?";
+				String sql ="delete from clientes where cedula_cliente=?";
 				ps=conec.prepareStatement(sql);
 				ps.setInt(1, cedula);
 				resul=ps.executeUpdate()>0;

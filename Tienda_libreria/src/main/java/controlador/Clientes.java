@@ -36,7 +36,7 @@ public class Clientes extends HttpServlet {
 			cedula =Integer.parseInt(request.getParameter("cedula"));
 			nombre = request.getParameter("nombre");
 			direccion = request.getParameter("direccion");
-			telefono= request.getParameter("telefono");
+			telefono= request.getParameter("tel");
 			email = request.getParameter("email");
 			ClientesDTO clienteDTO= new ClientesDTO(cedula,direccion,email,nombre,telefono);
 			if(cliente.Inserta_Clientes(clienteDTO)) {
@@ -60,7 +60,7 @@ public class Clientes extends HttpServlet {
 			direccion=cli.getDireccion();
 			telefono=cli.getTelefono();
 			email=cli.getEmail();
-			response.sendRedirect("Clientes.jsp? cedula="+cedula+"&&direccion="+direccion+"&&email="+email+
+			response.sendRedirect("Clientes.jsp?cedula="+cedula+"&&direccion="+direccion+"&&email="+email+
 					"&&nombre="+nombre+"&&tel="+telefono);
 			}else
 			 {
@@ -74,7 +74,7 @@ public class Clientes extends HttpServlet {
 			cedula =Integer.parseInt(request.getParameter("ced"));
 			nombre = request.getParameter("nombre");
 			direccion = request.getParameter("direccion");
-			telefono= request.getParameter("telefono");
+			telefono= request.getParameter("tel");
 			email = request.getParameter("email");
 			ClientesDTO cli= new ClientesDTO(cedula,direccion,email,nombre,telefono);
 			if(cliente.Actualiza_Clientes(cli)) {
@@ -88,8 +88,8 @@ public class Clientes extends HttpServlet {
 		}
 		if(request.getParameter("eliminar")!=null){
 			int cedula;
-			cedula=Integer.parseInt(request.getParameter("cedula")); /* Hidden name= cedu*/
-			int op=JOptionPane.showConfirmDialog(null,"Desea Eliminar Clinte cedu: "+cedula);
+			cedula=Integer.parseInt(request.getParameter("ced")); /* Hidden name= cedu*/
+			int op=JOptionPane.showConfirmDialog(null,"Desea Eliminar Cliente cedu: "+cedula);
 			if(op==0) { /* si la opcion es si, marca 0 elimina*/
 				if (cliente.Eliminar_Cliente(cedula)) {
 				response.sendRedirect("Clientes.jsp?men=Cliente Eliminado");

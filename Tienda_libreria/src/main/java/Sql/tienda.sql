@@ -1,3 +1,5 @@
+create database Tienda;
+
 use tienda;
 
 create table clientes(
@@ -10,9 +12,9 @@ telefono_cliente varchar (255)
 
 create table usuarios(
 cedula_ussario bigint(20) primary key not null,
-email_usuario varchar(255),
 nombre_usuario varchar(255)not null,
 password varchar(255)not null,
+email_usuario varchar(255),
 usuario varchar(255)not null
 );
 

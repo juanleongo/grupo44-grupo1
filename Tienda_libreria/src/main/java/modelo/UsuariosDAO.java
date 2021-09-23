@@ -57,7 +57,7 @@ public class UsuariosDAO {
 		public boolean Actualiza_Usuario(UsuariosDTO usu) {
 			boolean resul=false;
 			try {
-			String sql="update usuarios set email_usuario=?, nombre_usuario=?, contrasena=?, usuario=? where cedula_ussario=?";
+			String sql="update usuarios set email_usuario=?, nombre_usuario=?, password=?, usuario=? where cedula_ussario=?";
 			ps = conec.prepareStatement(sql);
 			
 			ps.setString(1, usu.getEmail());

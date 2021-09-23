@@ -97,7 +97,7 @@ if(request.getParameter("cedula")!=null){
 cedula=Integer.parseInt(request.getParameter("cedula"));
 nombre = request.getParameter("nombre");
 direccion = request.getParameter("direccion");
-telefono= request.getParameter("telefono");
+telefono= request.getParameter("tel");
 email = request.getParameter("email");
 estado="disabled";
 }
