@@ -98,7 +98,7 @@ int cedula=0;
 if(request.getParameter("cedula")!=null){
 cedula=Integer.parseInt(request.getParameter("cedula"));
 nombre = request.getParameter("nombre");
-contraseña = request.getParameter("contraseña");
+contraseña = request.getParameter("password");
 usuario= request.getParameter("usuario");
 email = request.getParameter("email");
 estado="disabled";
@@ -141,6 +141,9 @@ estado="disabled";
             </form>
 
         </div>
+        <div class="imagen">
+            	<img alt="" src="img/tienda.png">
+            </div>
         
 
         

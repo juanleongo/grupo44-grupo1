@@ -24,6 +24,14 @@ ul li{
     display: flex;
     align-items: center;
     padding: 20px;
+    transition:0.4s;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+ul li:hover{
+	background-color:#F7C449;
+	
 }
 
 ul li a{
@@ -32,6 +40,10 @@ ul li a{
     color: black;
     font-weight: 500;
     font-size: 1.2em;
+}
+
+ul li a:hover{
+	color:black;
 }
 
 ul .usuario, ul .clientes{
@@ -130,6 +142,10 @@ h1{
     width: 55%;
     min-height: 300px;
     margin: 30px;
+    
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: center;
 }
 
 .busquedaResultados h4{
@@ -202,6 +218,21 @@ h1{
     resize: none;
     transition: 0.4s;
 }
+
+
+.busquedaResultados .imagen{
+	display:flex;
+	justify-content: center;
+	width:100%; 
+	height: 50%;
+}
+
+.busquedaResultados .imagen img{
+	object-fit:cover;
+	width:100%;
+	height:100%;
+}
+
 
 footer div{
     width: 100%;
