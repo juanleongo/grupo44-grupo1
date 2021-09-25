@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="UTF-8">
+<title>Book City - Proveedores</title>
 </head>
 <body>
  <div class="contenedor">
@@ -13,9 +13,9 @@
             <h2>Registrar </h2>
             <div><label>NIT: </label><input type="number" name="nit" value=""></div>
             <div><label>Nombre Proveedor: </label><input type="text" name="nombre" value=""></div>
-            <div><label>Dirección: </label><input type="text" name="direccion" value=""></div>
+            <div><label>DirecciÃ³n: </label><input type="text" name="direccion" value=""></div>
             <div><label>Direccion: </label><input type="text" name="direccion" value=" "></div>
-            <div><label>Teléfono</label><input type="text" name="telefono" value=""></div>
+            <div><label>TelÃ©fono</label><input type="text" name="telefono" value=""></div>
             <div><label>Ciudad</label><input type="text" name="ciudad" value=""></div>
             <div><input type="submit" name="insertar" value="Registrar">
                 <input type="submit" name="actualizar" value="Actualizar">
