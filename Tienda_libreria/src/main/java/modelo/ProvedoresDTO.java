@@ -1,13 +1,13 @@
 package modelo;
 
-public class Provedores {
+public class ProvedoresDTO {
 	
 	private int nitprovedor;
 	private String ciudad_provedor;
 	private String direccion_provedor;
 	private String nombre_provedor;
 	private String telefono_provedor;
-	public Provedores(int nitprovedor, String ciudad_provedor, String direccion_provedor, String nombre_provedor,
+	public ProvedoresDTO(int nitprovedor, String ciudad_provedor, String direccion_provedor, String nombre_provedor,
 			String telefono_provedor) {
 	
 		this.nitprovedor = nitprovedor;
