@@ -34,4 +34,23 @@ public class ProvedoresDAO {
 		return resul;
 	}
 	
+	
+	public ProvedoresDTO Buscar_Provedores(int nit_provedores) {
+		
+		ProvedoresDTO pro=null;
+		try {
+		String sql="select * from provedores where nitprovedores=?";
+		ps=conec.prepareStatement(sql);
+		
+		ps.setInt(1,nit_provedores);
+		res=ps.executeQuery();
+		while(res.next()) {
+			pro= new ProvedoresDTO(res.getInt(1),res.getString(2),res.getString(3),res.getString(4), res.getString(5));
+		}
+		}catch(SQLException ex) {
+			JOptionPane.showMessageDialog(null,"Error al Consultar el provedor"+ ex);
+		}
+		return pro;
+	}
+	
 }
