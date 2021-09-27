@@ -73,9 +73,43 @@ public class Provedores extends HttpServlet {
 				response.sendRedirect("proveedores.jsp");
 			}
 		}
+            
+            if(request.getParameter("actualizar")!=null) {
+            	String ciudad,direccion,nombre,telefono;
+            	int nit;
+            	nit =Integer.parseInt(request.getParameter("nit"));
+            	ciudad = request.getParameter("ciudad");
+            	direccion = request.getParameter("direccion");
+            	nombre = request.getParameter("nombre");
+            	telefono= request.getParameter("telefono");
+            	
+            	ProvedoresDTO Prov= new ProvedoresDTO(nit,ciudad,direccion,nombre,telefono);
+            	if(proDAO.Actualiza_Provedores(Prov)) {
+            		//JOptionPane.showMessageDialog(null, "Se Actualizo exitosamente");
+            		response.sendRedirect("usuarios.jsp?men=Provedor Actualizado");
+            	}else {
+            		//JOptionPane.showMessageDialog(null, "No se Actualizo.");
+            		response.sendRedirect("usuarios.jsp?men=Error al Actualizar Provedor");
+            	}
+            	
+            }
+            if(request.getParameter("eliminar")!=null){
+            	int nit;
+            	nit=Integer.parseInt(request.getParameter("nitt")); // Hidden name= nitt
+            	int opc=JOptionPane.showConfirmDialog(null,"Desea Eliminar Provedor nit: "+nit);
+            	if(opc==0) { // si la opcion es si, marca 0 elimina
+            		if (proDAO.Eliminar_Provedores(nit)) { 	
+            		response.sendRedirect("proveedores.jsp?men=Provedor Eliminado");
+            		}else {
+            		response.sendRedirect("proveedores.jsp?men=Error al EliminarProvedor");
+            	}
+            	}else {
+            		response.sendRedirect("proveedores.jsp");  // si es no o cancelar asigana valor 1 o 2 y redirecciona al formulario de nuevo
+            	}    
 		
 		
 		
 	}
 
 }
+}	
