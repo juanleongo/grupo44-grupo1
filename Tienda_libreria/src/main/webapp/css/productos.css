@@ -1,0 +1,64 @@
+@charset "ISO-8859-1";
+
+
+:root{
+    --cream-brulee: #ffea9e;
+    --buttercup: #f5b00b;
+    --dark-ebony: #3d1f04;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+}
+
+ul .productos{
+	background-color: #f5af0b70;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.archivo{
+    background-color: var(--cream-brulee);
+    margin: 50px;
+    padding: 30px;
+    color: black;
+    border-radius: 20px;
+    font-size: 1.2em;
+    text-align: center;
+
+    font-family: 'Montserrat' , sans-serif;
+    
+}
+
+.archivo form{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    justify-content: center;
+}
+
+.archivo form .subir{
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.archivo form .file{
+    width: 50%;
+    margin: 10px auto;
+
+}
+
+.archivo form input[type=submit]{
+    background-color:var(--buttercup);
+    color: black;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    font-weight: bolder;
+    transition: 0.4s;
+    text-decoration: none;
+    border-radius: 10px;
+    cursor: pointer;
+}

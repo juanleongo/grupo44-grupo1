@@ -4,11 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Book City - Proveedores</title>
-
+<title>Book City - Ventas</title>
 <!------------ ESTILOS  ----------------->
 <link rel="stylesheet" href="css/usuariosClientes.css">
 <link rel="stylesheet" href="css/general.css">
+<link rel="stylesheet" href="css/productos.css">
+
 
 
 <!------------ FUENTES ----------------->
@@ -56,7 +57,7 @@ crossorigin="anonymous">
             </a>
         </li>
 
-        <li class="proveedores">
+        <li>
 
             <a href="proveedores.jsp" class="opcion">
                 Proveedores
@@ -64,7 +65,7 @@ crossorigin="anonymous">
 
         </li>
 
-        <li>
+        <li class="productos">
 
             <a href="productos.jsp" class="opcion">
                 Productos
@@ -91,71 +92,18 @@ crossorigin="anonymous">
             
         </ul>
         
+         <h1>Productos</h1>
+         
+        <div class="archivo"> 
+        <h2>Subir Archivo</h2> 
+ 
+<form action="" method="post" enctype="multipart/form-data">
+<div class="subir">
+<label>Nombre del archivo: </label><input type="file" value="Examinar" name="archivo" class="form-control file">
+</div>
+<input type="submit" value="Cargar Archivo" name="cargar">
+</form>
 
-
-<%!String ciudad="",direccion="",nombre="",telefono="", estado="";
-int nit=0;
-%>
-<%
-if(request.getParameter("nit")!=null){
-nit=Integer.parseInt(request.getParameter("nit"));
-ciudad = request.getParameter("ciudad");
-direccion = request.getParameter("direccion");
-nombre= request.getParameter("nombre");
-telefono = request.getParameter("telefono");
-estado="disabled";
-}
-
-
-
-%>
-
-<h1> Proveedores</h1>
- <div class="contenedor">
-        <div class="izquierda">
-        <form action="Provedores" method="post">
-            <h2>Registrar </h2>
-            <div><label>NIT: </label><input type="number" name="nit" value="<%=nit%>"<%=estado%> required ></div>
-            <input type="hidden" name="nitt" value="<%=nit%>">
-           <div><label>Ciudad</label><input type="text" name="ciudad" value="<%=ciudad%>"></div>
-            <div><label>Dirección: </label><input type="text" name="direccion" value="<%=direccion%>"></div>
-             <div><label>Nombre Proveedor: </label><input type="text" name="nombre" value="<%=nombre%>"></div>
-              <div><label>Teléfono</label><input type="text" name="telefono" value="<%=telefono%>"></div>
-            <div class="botones">
-            <input type="submit" name="insertar" value="Registrar">
-                <input type="submit" name="actualizar" value="Actualizar">
-                <input type="submit" name="eliminar" value="Eliminar">
-            </div>
-
-        </form>
-        </div>
-        <div class="busquedaResultados">
-        <div class="busqueda">
-            <form action="Provedores" method="post">
-                <fieldset>
-                    <h4>Consultar:</h4>
-                    <div><label>NIT: </label><input type="number" name="nit">
-                        <input type="submit" name="consultar" value="Consultar"></div>
-                </fieldset>
-            </form>
-
-        </div>
-        <div class="imagen">
-            	<img alt="" src="img/proveedores.png">
-            </div>
-             </div>
-        
-        </div>
-
-    </div>
-
-<%
-if(request.getParameter("men")!=null){
-String mensaje=request.getParameter("men");
-out.print("<script>alert('"+mensaje+"');</script>");
-}
-%>
-
-
+</div> 
 </body>
 </html>

@@ -58,14 +58,14 @@ crossorigin="anonymous">
                 Clientes
             </a>
 
-            <a href="" class="opcion">
+            <a href="proveedores.jsp" class="opcion">
                 <div>
                     <img src="img/proveedor.png" alt="">
                 </div>
                 Proveedores
             </a>
 
-            <a href="" class="opcion">
+            <a href="productos.jsp" class="opcion">
                 <div>
                     <img src="img/productos.png" alt="">
                 </div>

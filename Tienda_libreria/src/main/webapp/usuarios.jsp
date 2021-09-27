@@ -57,7 +57,7 @@ crossorigin="anonymous">
 
         <li>
 
-            <a href="" class="opcion">
+            <a href="proveedores.jsp" class="opcion">
                 Proveedores
             </a>
 
@@ -65,7 +65,7 @@ crossorigin="anonymous">
 
         <li>
 
-            <a href="" class="opcion">
+            <a href="productos.jsp" class="opcion">
                 Productos
             </a>
 

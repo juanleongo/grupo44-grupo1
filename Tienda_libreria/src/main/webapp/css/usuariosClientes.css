@@ -46,7 +46,7 @@ ul li a:hover{
 	color:black;
 }
 
-ul .usuario, ul .clientes{
+ul .usuario, ul .clientes, ul .proveedores, ul .productos{
     background-color: #f5af0b70;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -139,10 +139,9 @@ h1{
 
 
 .busquedaResultados{
-    width: 55%;
+    width:55%;
     min-height: 300px;
     margin: 30px;
-    
     display:flex;
     flex-wrap:wrap;
     justify-content: center;
