@@ -156,6 +156,11 @@ out.print("<script>alert('"+mensaje+"');</script>");
 }
 %>
 
-
+    <footer >
+        <div>
+        © 2021 Copyright
+        </div>
+        </footer>
+      
 </body>
 </html>
