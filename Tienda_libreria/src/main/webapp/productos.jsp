@@ -104,6 +104,13 @@ crossorigin="anonymous">
 <input type="submit" value="Cargar Archivo" name="cargar">
 </form>
 
+<hr>
+			<form action="Productos" method="post" enctype="multipart/form-data">
+			<div><label>Archivo</label><input type="file" value="Examinar" name="archivo">
+			</div>
+			<input type="submit" value="Cargar Archivo" name="cargar">
+			</form>
+
 </div> 
     <footer >
         <div>
