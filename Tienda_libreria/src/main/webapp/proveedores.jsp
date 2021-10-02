@@ -147,7 +147,6 @@ estado="disabled";
         
         </div>
 
-    </div>
 
 <%
 if(request.getParameter("men")!=null){
