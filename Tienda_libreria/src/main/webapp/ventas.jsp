@@ -43,9 +43,9 @@ double valor=00;
 %>
 <%
 if(request.getParameter("cod")!=null){
-cod=Integer.parseInt(request.getParameter("cod"));
-nombre= request.getParameter("nombre");
-valor=Double.parseDouble("valor");
+cod=Integer.parseInt(request.getParameter("codigo_producto"));
+nombre= request.getParameter("nombre_producto");
+valor=Double.parseDouble("valor_venta");
 estado="disabled";
 }
 %>   
@@ -56,7 +56,7 @@ estado="disabled";
         <div><label>Codigo Producto:</label> <input type="number" name="cod" value="<%=cod%>"required> </div>
            
         <div>  <input type="submit" name="consultar" value="consultar">   </div>
-        <div><label>Nombre Producto</label> <input type="text" name="nombre" value="<%=nombre%>"></div>
+        <div><label>Nombre Producto</label> <input type="text" name="nombre" value="<%=nombre%>" readonly></div>
 
          <input type="hidden" name="valor" value="<%=valor%>">               
 
@@ -74,12 +74,12 @@ estado="disabled";
 
       <form action="Detalle_ventas" method="post">
         
-        <div><label>Codigo Producto:</label> <input type="number" name="cod1" value="<%=cod%>"required> </div>
+        <div><label>Codigo Producto:</label> <input type="number" name="cod" value="<%=cod%>"required> </div>
            
         <div>  <input type="submit" name="consultar1" value="consultar">   </div>
         <div><label>Nombre Producto</label> <input type="text" name="nombre" value="<%=nombre%>"></div>
 
-         <input type="hidden" name="valor1" value="<%=valor%>">               
+         <input type="hidden" name="valor" value="<%=valor%>">               
 
         <div><label>Cantidad:</label><input type="number" name="" value=""> </div>
 
@@ -90,14 +90,14 @@ estado="disabled";
     <hr>
 
 
-     <form action="Detalle_ventas2" method="post">
+     <form action="Detalle_ventas" method="post">
        
-        <div><label>Codigo Producto:</label> <input type="number" name="cod2" value="<%=cod%>"required> </div>
+        <div><label>Codigo Producto:</label> <input type="number" name="cod" value="<%=cod%>"required> </div>
            
         <div>  <input type="submit" name="consultar2" value="consultar">   </div>
         <div><label>Nombre Producto</label> <input type="text" name="nombre" value="<%=nombre%>"></div>
 
-         <input type="hidden" name="valor2" value="<%=valor%>">               
+         <input type="hidden" name="valor" value="<%=valor%>">               
 
         <div><label>Cantidad:</label><input type="number" name="" value=""> </div>
 

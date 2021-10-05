@@ -9,18 +9,19 @@ public class Detalle_ventasDTO {
 	private double valor_total;
 	private double valor_venta;
 	private double valoriva;
-	private String nombre_producto;
-	
-	
-
-
-	public Detalle_ventasDTO(int codigo_producto, double valor_venta, String nombre_producto) {
 		
-		this.codigo_producto = codigo_producto;
-		this.valor_venta = valor_venta;
-		this.nombre_producto = nombre_producto;
-	}
 
+	public Detalle_ventasDTO(int codigo_detalle_venta, int cantidad_producto, int codigo_producto, int codigo_venta,
+			double valor_total, double valor_venta, double valoriva) {
+		super();
+		this.codigo_detalle_venta = codigo_detalle_venta;
+		this.cantidad_producto = cantidad_producto;
+		this.codigo_producto = codigo_producto;
+		this.codigo_venta = codigo_venta;
+		this.valor_total = valor_total;
+		this.valor_venta = valor_venta;
+		this.valoriva = valoriva;
+	}
 
 
 	public int getCodigo_detalle_venta() {
@@ -93,15 +94,7 @@ public class Detalle_ventasDTO {
 	}
 
 
-	public String getNombre_producto() {
-		return nombre_producto;
-	}
 
-
-	public void setNombre_producto(String nombre_producto) {
-		this.nombre_producto = nombre_producto;
-	}
-	
 	
 	
 	

@@ -41,7 +41,7 @@ public class Productos extends HttpServlet {
 			if(request.getParameter("cargar")!=null) {
 			
 			Part archivo= request.getPart("archivo");
-			//String Url="C:\\Users\\vivis\\eclipse-workspace\\Prestamos_44\\src\\main\\webapp\\Documentos\\";
+			
 			String Url="C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/";
 			
 			try {

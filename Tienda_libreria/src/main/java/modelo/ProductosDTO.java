@@ -20,6 +20,18 @@ public class ProductosDTO {
 		this.precio_compra = precio_compra;
 		this.precio_venta = precio_venta;
 	}
+	
+	
+
+
+	public ProductosDTO(int codigo_producto, String nombre_productos, double precio_venta) {
+		
+		this.codigo_producto = codigo_producto;
+		this.nombre_productos = nombre_productos;
+		this.precio_venta = precio_venta;
+	}
+
+
 
 
 	public int getCodigo_producto() {

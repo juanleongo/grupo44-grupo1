@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 
 import modelo.Detalle_ventasDAO;
 import modelo.Detalle_ventasDTO;
+import modelo.ProductosDTO;
 
 
 /**
@@ -32,16 +33,58 @@ public class Detalle_ventas extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		 Detalle_ventasDAO DETADAO=new Detalle_ventasDAO();
+		 
 		  if(request.getParameter("consultar")!=null) {
 				
 			   int codigo_producto=Integer.parseInt(request.getParameter("cod"));
-			   Detalle_ventasDTO deta=DETADAO.Buscar_Producto(codigo_producto);
+			   ProductosDTO deta = DETADAO.Buscar_Producto(codigo_producto);
 				if(deta!=null) {
 				String nombre;
 				double valor;
 				codigo_producto=deta.getCodigo_producto();
-				nombre=deta.getNombre_producto();
-				valor=deta.getValor_venta();
+				nombre=deta.getNombre_productos();
+				valor=deta.getPrecio_venta();
+				response.sendRedirect("ventas.jsp?codigo_producto="+codigo_producto+"&&nombre_producto="+nombre+"&&valor_venta="+valor);
+				}else
+				{
+					
+					JOptionPane.showMessageDialog(null, "El producto no Existe");
+					
+					response.sendRedirect("ventas.jsp");
+				}
+			}
+			
+		
+	
+		  if(request.getParameter("consultar1")!=null) {
+				
+			   int codigo_producto=Integer.parseInt(request.getParameter("cod"));
+			   ProductosDTO deta = DETADAO.Buscar_Producto(codigo_producto);
+				if(deta!=null) {
+				String nombre;
+				double valor;
+				codigo_producto=deta.getCodigo_producto();
+				nombre=deta.getNombre_productos();
+				valor=deta.getPrecio_venta();
+				response.sendRedirect("ventas.jsp?codigo_producto="+codigo_producto+"&&nombre_producto="+nombre+"&&valor_venta="+valor);
+				}else
+				{
+					
+					JOptionPane.showMessageDialog(null, "El producto no Existe");
+					
+					response.sendRedirect("ventas.jsp");
+				}
+			}
+		  if(request.getParameter("consultar2")!=null) {
+				
+			   int codigo_producto=Integer.parseInt(request.getParameter("cod"));
+			   ProductosDTO deta = DETADAO.Buscar_Producto(codigo_producto);
+				if(deta!=null) {
+				String nombre;
+				double valor;
+				codigo_producto=deta.getCodigo_producto();
+				nombre=deta.getNombre_productos();
+				valor=deta.getPrecio_venta();
 				response.sendRedirect("ventas.jsp?codigo_producto="+codigo_producto+"&&nombre_producto="+nombre+"&&valor_venta="+valor);
 				}else
 				{
@@ -52,28 +95,6 @@ public class Detalle_ventas extends HttpServlet {
 				}
 			}
 		
-	
-		  if(request.getParameter("consultar1")!=null) {
-				
-			   int codigo_producto=Integer.parseInt(request.getParameter("cod1"));
-			   Detalle_ventasDTO deta=DETADAO.Buscar_Producto(codigo_producto);
-				if(deta!=null) {
-				String nombre;
-				double valor;
-				codigo_producto=deta.getCodigo_producto();
-				nombre=deta.getNombre_producto();
-				valor=deta.getValor_venta();
-				response.sendRedirect("ventas.jsp?codigo_producto="+codigo_producto+"&&nombre_producto="+nombre+"&&valor_venta="+valor);
-				}else
-				{
-					
-					JOptionPane.showMessageDialog(null, "El producto no Existe");
-					response.sendRedirect("ventas.jsp");
-		
-		
-		
-	}
-				
 					
 				
 			
@@ -81,4 +102,4 @@ public class Detalle_ventas extends HttpServlet {
 
 }
 	}
-}
+
