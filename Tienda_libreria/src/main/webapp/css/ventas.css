@@ -1,39 +1,5 @@
 @charset "ISO-8859-1";
-:root{
-    --cream-brulee: #ffea9e;
-    --buttercup: #f5b00b;
-    --dark-ebony: #3d1f04;
-}
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: 0;
-}
-
-.contenedor{
-    display: flex;
-    flex-wrap: wrap;
-
-
-}
-
-form{
-    width: 100%;
-
-    display: flex;
-    padding: 20px;
-    margin: 10px;
-}
-
-.totales{
-    display: flex;
-    justify-content: end;
-}
-
-.final{
-    width: 25%;
-    display: flex;
-    flex-wrap: wrap;
-    
+body{
+	background-color:blue;
 }

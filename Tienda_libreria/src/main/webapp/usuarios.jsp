@@ -73,7 +73,7 @@ crossorigin="anonymous">
 
         <li>
 
-            <a href="" class="opcion">
+            <a href="ventas.jsp" class="opcion">
                 Ventas
             </a>
 

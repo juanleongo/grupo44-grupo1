@@ -72,7 +72,7 @@ crossorigin="anonymous">
                 Productos
             </a>
 
-            <a href="" class="opcion">
+            <a href="ventas.jsp" class="opcion">
                 <div>
                     <img src="img/ventas.png" alt="">
                 </div>

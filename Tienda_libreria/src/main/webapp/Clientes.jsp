@@ -73,7 +73,7 @@ crossorigin="anonymous">
 
         <li>
 
-            <a href="" class="opcion">
+            <a href="ventas.jsp" class="opcion">
                 Ventas
             </a>
 
@@ -152,5 +152,11 @@ String mensaje=request.getParameter("men");
 out.print("<script>alert('"+mensaje+"');</script>");
 }
 %>
+
+<footer >
+    <div>
+    © 2021 Copyright
+    </div>
+    </footer>
 </body>
 </html>
