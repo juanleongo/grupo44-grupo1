@@ -9,7 +9,7 @@ public class ProductosDTO {
 	private double precio_compra;
 	private double precio_venta;
 	
-	
+
 	public ProductosDTO(int codigo_producto, double ivacompra, int nitprovedor, String nombre_productos,
 			double precio_compra, double precio_venta) {
 		

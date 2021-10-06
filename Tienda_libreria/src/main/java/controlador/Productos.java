@@ -16,6 +16,8 @@ import javax.servlet.http.Part;
 
 import javax.swing.JOptionPane;
 
+import modelo.ProductosDTO;
+import modelo.ClientesDTO;
 import modelo.ProductosDAO;
 
 /**
@@ -68,6 +70,47 @@ public class Productos extends HttpServlet {
 			
 			
 		}
+			
+			
+			if(request.getParameter("consultar")!=null) {
+
+				int codigo=Integer.parseInt(request.getParameter("codigo"));
+				ProductosDTO pro=prodao.Buscar_Producto(codigo);
+				if(pro!=null) {
+				String nombre;
+				double iva, compra, venta;
+				int nit;
+				codigo=pro.getCodigo_producto();
+				iva=pro.getIvacompra();
+				nit=pro.getNitprovedor();
+				nombre = pro.getNombre_productos();
+				compra = pro.getPrecio_compra();
+				venta = pro.getPrecio_venta();
+				response.sendRedirect("productos.jsp?codigo="+codigo+"&&iva="+iva+"&&nit="+nit+"&&nombre="+nombre+
+						"&&compra="+compra+"&&venta="+venta);
+				}else
+				 {
+					JOptionPane.showMessageDialog(null, "El Producto no Existe");
+					response.sendRedirect("productos.jsp");
+				}
+			}
+			
+			if(request.getParameter("actualizar")!=null) {
+				String nombre;
+				double venta;
+				int codigo;
+				codigo =Integer.parseInt(request.getParameter("cod"));
+				nombre = request.getParameter("nombre");
+				venta = Double.parseDouble(request.getParameter("venta"));
+				
+				ProductosDTO pro= new ProductosDTO(codigo, nombre, venta);
+				if(prodao.Actualiza_Productos(pro)) {
+					response.sendRedirect("productos.jsp?men=Se Actualizo el Producto exitosamente!!");
+				}else {
+					response.sendRedirect("productos.jsp?men=No se Actualizo el Producto.....");
+				}
+
+			}
 	
 	}
 

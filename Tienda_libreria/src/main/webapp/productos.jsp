@@ -75,7 +75,7 @@ crossorigin="anonymous">
 
         <li>
 
-            <a href="" class="opcion">
+            <a href="ventas.jsp" class="opcion">
                 Ventas
             </a>
 
@@ -96,22 +96,85 @@ crossorigin="anonymous">
          
         <div class="archivo"> 
         <h2>Subir Archivo</h2> 
- 
-<form action="" method="post" enctype="multipart/form-data">
-<div class="subir">
-<label>Nombre del archivo: </label><input type="file" value="Examinar" name="archivo" class="form-control file">
-</div>
-<input type="submit" value="Cargar Archivo" name="cargar">
-</form>
 
-<hr>
-			<form action="Productos" method="post" enctype="multipart/form-data">
+
+		<form action="Productos" method="post" enctype="multipart/form-data" class="cargarSubir">
 			<div><label>Archivo</label><input type="file" value="Examinar" name="archivo">
+			
+			<input type="submit" value="Cargar Archivo" name="cargar" class="subir">
 			</div>
-			<input type="submit" value="Cargar Archivo" name="cargar">
 			</form>
+			
+			
+<%!String nombre="", estado="";
+int codigo, nit;
+double iva, compra, venta;
+%>
+<%
+if(request.getParameter("codigo")!=null){
+codigo=Integer.parseInt(request.getParameter("codigo"));
+iva = Double.parseDouble(request.getParameter("iva"));
+nit = Integer.parseInt(request.getParameter("nit"));
+nombre = request.getParameter("nombre");
+compra = Double.parseDouble(request.getParameter("compra"));
+venta = Double.parseDouble(request.getParameter("venta"));
+estado="disabled";
+}
+%>
+			
+			<form action="Productos" method="post" class="cons" >
+			<div>
+				<label>Codigo Producto</label><input type="number" name="codigo" >
+				<input type="submit" name="consultar" value="Consultar">
+			</div>
+			
+			
+			</form> 
+			
+			
+			<form action="Productos" method="post" class="consultar">
+			<div>
+				<label>Codigo Producto<label><input type="number" name="codigo" value="<%=codigo%>"<%=estado%>>
+				<input type="hidden" name="cod" value="<%=codigo%>">
+			</div>
+			
+			<div>
+				<label>Iva Compra<label><input type="number" name="iva" value="<%=iva%>"<%=estado%>>
+			</div>
+			
+			<div>
+				<label>Nit Proveedor<label><input type="number" name="nit" value="<%=nit%>"<%=estado%>>
+			</div>
+			
+			<div>
+				<label>Nombre Producto<label><input type="text" name="nombre" value="<%=nombre%>">
+			</div>
+			
+			<div>
+				<label>Precio Compra<label><input type="number" name="compra" value="<%=compra%>"<%=estado%>>
+			</div>
+			
+			<div>
+				<label>Precio Venta<label><input type="number" name="venta" value="<%=venta%>">
+			</div>
+			
+			
+			
+			
+			<input type="submit" name="actualizar" value="Actualizar">
+			
+			
+			</form>
+	
+			
 
-</div> 
+</div>
+<%
+if(request.getParameter("men")!=null){
+String mensaje=request.getParameter("men");
+out.print("<script>alert('"+mensaje+"');</script>");
+}
+%>
     <footer >
         <div>
         © 2021 Copyright
