@@ -56,17 +56,17 @@ public class ProvedoresDAO {
 	public boolean Actualiza_Provedores(ProvedoresDTO Prov) {
 		boolean resul=false;
 		try {
-		String sql="update provedores set ciudad_provedor=?, direccion_provedor=?, nombre_provedor=?, telefono_provedor=? where nit_provedores=?";
+		String sql="update provedores set ciudad_provedor=?, direccion_provedor=?, nombre_provedor=?, telefono_provedor=? where nitprovedores=?";
 		ps = conec.prepareStatement(sql);
-		ps.setInt(1, Prov.getNit_provedores());
-		ps.setString(2, Prov.getCiudad_provedor());
-		ps.setString(3, Prov.getDireccion_provedor());
-		ps.setString(4, Prov.getNombre_provedor());
-		ps.setString(5, Prov.getTelefono_provedor());
+		ps.setString(1, Prov.getCiudad_provedor());
+		ps.setString(2, Prov.getDireccion_provedor());
+		ps.setString(3, Prov.getNombre_provedor());
+		ps.setString(4, Prov.getTelefono_provedor());
+		ps.setInt(5, Prov.getNit_provedores());
 		resul=ps.executeUpdate()>0;
 		
 		}catch(SQLException ex) {
-			JOptionPane.showMessageDialog(null,"Error al Actualizar el Provedores"+ex);
+			JOptionPane.showMessageDialog(null,"Error al Actualizar el Provedor"+ex);
 		}
 		return resul;
 	}
@@ -74,7 +74,7 @@ public class ProvedoresDAO {
 	public boolean Eliminar_Provedores(int nit_provedores) {
 		boolean resul = false;
 		try {
-			String sql ="delete from provedores where nit_provedores=?";
+			String sql ="delete from provedores where nitprovedores=?";
 			ps=conec.prepareStatement(sql);
 			ps.setInt(1, nit_provedores);
 			resul=ps.executeUpdate()>0;

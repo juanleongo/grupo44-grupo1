@@ -134,7 +134,7 @@ estado="disabled";
             <form action="Provedores" method="post">
                 <fieldset>
                     <h4>Consultar:</h4>
-                    <div><label>NIT: </label><input type="number" name="nit">
+                    <div><label>NIT: </label><input type="number" name="nitN">
                         <input type="submit" name="consultar" value="Consultar"></div>
                 </fieldset>
             </form>

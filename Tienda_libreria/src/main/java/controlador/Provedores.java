@@ -10,7 +10,6 @@ import javax.swing.JOptionPane;
 
 import modelo.ProvedoresDAO;
 import modelo.ProvedoresDTO;
-import modelo.UsuariosDTO;
 
 /**
  * Servlet implementation class Provedores
@@ -44,18 +43,15 @@ public class Provedores extends HttpServlet {
 			telefono = request.getParameter("telefono");
 			ProvedoresDTO pro= new ProvedoresDTO(nit, ciudad, direccion, nombre, telefono);
 			if (proDAO.Inserta_Provedor(pro)) {
-				response.sendRedirect("provedores.jsp?men=Se Registro el provedor Exitosamente!!");
-			//	JOptionPane.showMessageDialog(null, "Se registro el Proveedor exitosamente");
-				response.sendRedirect("proveedores.jsp");
+				response.sendRedirect("proveedores.jsp?men=Se Registro el provedor Exitosamente!!");
 			}else {
-				JOptionPane.showMessageDialog(null, "No se registro el Proveedor");
-				response.sendRedirect("proveedores.jsp");
+				response.sendRedirect("proveedores.jsp?men=No se Registro el  proveedor.....");
 			}
 		}
 		
             if(request.getParameter("consultar")!=null) {
 			
-            int nit_provedores=Integer.parseInt(request.getParameter("nit"));
+            int nit_provedores=Integer.parseInt(request.getParameter("nitN"));
             ProvedoresDTO pro=proDAO.Buscar_Provedores(nit_provedores);
 			if(pro!=null) {
 			String ciudad, direccion, nombre, telefono;
@@ -77,7 +73,7 @@ public class Provedores extends HttpServlet {
             if(request.getParameter("actualizar")!=null) {
             	String ciudad,direccion,nombre,telefono;
             	int nit;
-            	nit =Integer.parseInt(request.getParameter("nit"));
+            	nit =Integer.parseInt(request.getParameter("nitt"));
             	ciudad = request.getParameter("ciudad");
             	direccion = request.getParameter("direccion");
             	nombre = request.getParameter("nombre");
@@ -86,10 +82,10 @@ public class Provedores extends HttpServlet {
             	ProvedoresDTO Prov= new ProvedoresDTO(nit,ciudad,direccion,nombre,telefono);
             	if(proDAO.Actualiza_Provedores(Prov)) {
             		//JOptionPane.showMessageDialog(null, "Se Actualizo exitosamente");
-            		response.sendRedirect("usuarios.jsp?men=Provedor Actualizado");
+            		response.sendRedirect("proveedores.jsp?men=Proveedor Actualizado");
             	}else {
             		//JOptionPane.showMessageDialog(null, "No se Actualizo.");
-            		response.sendRedirect("usuarios.jsp?men=Error al Actualizar Provedor");
+            		response.sendRedirect("proveedores.jsp?men=Error al Actualizar Proveedor");
             	}
             	
             }
