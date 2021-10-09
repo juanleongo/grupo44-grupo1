@@ -8,9 +8,9 @@
 </head>
 <body>
 	<div>
-		<a href="listaUsuarios.jsp">Listado Usuarios</a>
-		<a href="listaClientes.jsp">Listado Clientes</a>
-		<a>Ventas Clientes</a>
+		<a href="listaUsuarios.jsp" id="Usuarios">Listado Usuarios</a>
+		<a href="listaClientes.jsp" id="Clientes">Listado Clientes</a>
+		<a hred="ventasClientes.jsp" id="Ventas">Ventas Clientes</a>
 	</div>
 </body>
 </html>
