@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
@@ -85,5 +86,24 @@ public class UsuariosDAO {
 			return resul;
 				
 			}
+		
+		
+		public ArrayList<UsuariosDTO> cargarLibros(){
+			
+			UsuariosDTO lib=null;
+			ArrayList<UsuariosDTO> lista= new ArrayList<>();
+			try {
+			String sql="select * from usuarios";	
+			ps=conec.prepareStatement(sql);
+			res=ps.executeQuery();
+			while(res.next()) {
+				lib= new UsuariosDTO(res.getInt(1),res.getString(2),res.getString(3),res.getString(4),res.getString(5));
+				lista.add(lib);
+			}
+			}catch(SQLException ex) {
+				JOptionPane.showMessageDialog(null,"Error al consultar el USUARIO" +ex);
+			}
+			 return lista;
+		}
 }
 
