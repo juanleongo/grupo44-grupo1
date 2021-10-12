@@ -13,6 +13,9 @@ import javax.swing.JOptionPane;
 
 import com.google.gson.Gson;
 
+
+import modelo.ClienteDAO;
+import modelo.ClientesDTO;
 import modelo.UsuariosDAO;
 import modelo.UsuariosDTO;
 
@@ -36,9 +39,7 @@ public class Reportes extends HttpServlet {
 		
 
 		String op=request.getParameter("opcion");
-		JOptionPane.showMessageDialog(null, op);
-		
-		
+	//	JOptionPane.showMessageDialog(null, op);
 		PrintWriter salida= response.getWriter();
 			Gson datos= new Gson();
 			
@@ -51,7 +52,12 @@ public class Reportes extends HttpServlet {
 
 		}
 		
-	
+			if(op.equals("CLIENTES")) {
+				ClienteDAO pre= new ClienteDAO();
+				ArrayList<ClientesDTO> lista= new ArrayList<>();
+				lista=pre.cargarLibros();
+				salida.println(datos.toJson(lista));
+			}
 
 }
 }

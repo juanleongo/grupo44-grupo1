@@ -4,16 +4,16 @@ public class UsuariosDTO {
  
 	private int cedula;
 	private String nombre;
-	private String contraseña;
+	private String contrasena;
 	private String email;
 	private String usuario;
 	
 
 
-	public UsuariosDTO(int cedula, String nombre, String contraseña, String email, String usuario) {
+	public UsuariosDTO(int cedula, String nombre, String contrasena, String email, String usuario) {
 		this.cedula = cedula;
 		this.nombre = nombre;
-		this.contraseña = contraseña;
+		this.contrasena = contrasena;
 		this.email = email;
 		this.usuario = usuario;
 	}
@@ -42,12 +42,12 @@ public String getEmail() {
 		this.nombre = nombre;
 	}
 
-	public String getContraseña() {
-		return contraseña;
+	public String getContrasena() {
+		return contrasena;
 	}
 
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
 	}
 
 	public String getUsuario() {

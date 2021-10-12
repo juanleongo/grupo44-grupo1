@@ -26,7 +26,7 @@ public class UsuariosDAO {
 			ps.setInt(1, usu.getCedula());
 			ps.setString(4, usu.getEmail());
 			ps.setString(2, usu.getNombre());
-			ps.setString(3, usu.getContraseña());
+			ps.setString(3, usu.getContrasena());
 			ps.setString(5, usu.getUsuario());
 			resul=ps.executeUpdate()>0;	
 			}catch(SQLException ex) {
@@ -63,7 +63,7 @@ public class UsuariosDAO {
 			
 			ps.setString(1, usu.getEmail());
 			ps.setString(2, usu.getNombre());
-			ps.setString(3, usu.getContraseña());
+			ps.setString(3, usu.getContrasena());
 			ps.setString(4, usu.getUsuario());
 			ps.setInt(5, usu.getCedula());
 			resul=ps.executeUpdate()>0;	
@@ -101,7 +101,7 @@ public class UsuariosDAO {
 				lista.add(lib);
 			}
 			}catch(SQLException ex) {
-				JOptionPane.showMessageDialog(null,"Error al consultar el USUARIO" +ex);
+				JOptionPane.showMessageDialog(null,"Error al consultar el Cliente" +ex);
 			}
 			 return lista;
 		}

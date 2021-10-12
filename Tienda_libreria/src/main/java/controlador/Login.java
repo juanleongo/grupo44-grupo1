@@ -77,7 +77,7 @@ public class Login extends HttpServlet {
 			String nombre,password,usuario,email;
 			cedula=usu.getCedula();
 			nombre=usu.getNombre();
-			password=usu.getContraseña();
+			password=usu.getContrasena();
 			usuario=usu.getUsuario();
 			email=usu.getEmail();
 			response.sendRedirect("usuarios.jsp?cedula="+cedula+"&&nombre="+nombre+"&&password="

@@ -12,10 +12,10 @@
 <body>
 	<div>
 
-		<div><button id="listaUsuarios.jsp">Lista usuarios</button></div>
+		<div><button class="listaUsuarios">Lista usuarios</button></div>
 		
-		<div><button id="listaClientes.jsp">Listado Clientes</button></div>
-	<div><button id="ventasClientes.jsp">Ventas Clientes</button></div>
+		<div><button class="listaClientes">Listado Clientes</button></div>
+	<div><button id="ventasClientes">Ventas Clientes</button></div>
 	
 
 		

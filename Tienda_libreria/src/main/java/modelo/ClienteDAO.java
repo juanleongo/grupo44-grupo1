@@ -5,10 +5,12 @@ package modelo;
 	import java.sql.PreparedStatement;
 	import java.sql.ResultSet;
 	import java.sql.SQLException;
+import java.util.ArrayList;
 
-	import javax.swing.JOptionPane;
+import javax.swing.JOptionPane;
 
-	import controlador.Conexion;
+
+import controlador.Conexion;
 
 	public class ClienteDAO {
 
@@ -81,6 +83,26 @@ package modelo;
 			return resul;
 				
 			}
+	    
+	    
+	    public ArrayList<ClientesDTO> cargarLibros(){
+			
+			ClientesDTO lib=null;
+			ArrayList<ClientesDTO> lista= new ArrayList<>();
+			try {
+			String sql="select * from clientes";	
+			ps=conec.prepareStatement(sql);
+			res=ps.executeQuery();
+			while(res.next()) {
+				lib= new ClientesDTO(res.getInt(1),res.getString(2),res.getString(3),res.getString(4),res.getString(5));
+				lista.add(lib);
+			}
+			}catch(SQLException ex) {
+				JOptionPane.showMessageDialog(null,"Error al consultar El Cliente" +ex);
+			}
+			 return lista;
+		}  
+	    
 }
 
 
