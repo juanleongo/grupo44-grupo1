@@ -17,6 +17,16 @@ public class ClientesDTO {
 		this.nombre = nombre;
 		this.telefono = telefono;
 	}
+	
+	
+
+	public ClientesDTO(int cedula, String nombre) {
+		super();
+		this.cedula = cedula;
+		this.nombre = nombre;
+	}
+
+
 
 	public int getCedula() {
 		return cedula;

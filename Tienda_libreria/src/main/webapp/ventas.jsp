@@ -173,20 +173,31 @@ crossorigin="anonymous">
 
          <h1>VENTAS</h1>
 
+<%!String nombre_cliente="";
+int cedula=0;
+%>         
+<% if(request.getParameter("cedula")!=null){
+cedula=Integer.parseInt(request.getParameter("cedula"));
+nombre_cliente= request.getParameter("nombre");
+
+}
+%> 
+         
+
 <div class="contenedor">
-    <form action="" method="post">
+    <form action="Detalle_ventas" method="post">
         <div>
             <label>Cedula:</label>
-            <input type="number" name="" value="">
+            <input type="number" name="cedula" value="<%=cedula%>">
         </div>
         
         <div>
-            <input type="submit" name="" value="Consultar">
+            <input type="submit" name="consultar_cli" value="Consultar">
         </div>
 
         <div>
             <label>Cliente:</label>
-            <input type="text" name="" value="">
+            <input type="text" name="nombre_cliente" value="<%=nombre_cliente%>">
         </div>
 
         <div>
@@ -199,33 +210,69 @@ crossorigin="anonymous">
 
     <hr>
     
- <%!String nombre="", estado="";
-int cod=0;
-double valor=00;
+<%!String nombre_producto="", nombre_producto1="",nombre_producto2="", estado="";
+int codigo_producto, codigo_producto1 ,codigo_producto2;
+double valor_venta, valor_venta1, valor_venta2,
+	   precio_venta,precio_venta1,precio_venta2,
+       cantidad, cantidad1,cantidad2,
+       valorTotal, totalIva ,totalConIva ;
+
 %>
+
 <%
-if(request.getParameter("cod")!=null){
-cod=Integer.parseInt(request.getParameter("codigo_producto"));
-nombre= request.getParameter("nombre_producto");
-valor=Double.parseDouble("valor_venta");
+if(request.getParameter("codigo_producto")!=null){
+codigo_producto=Integer.parseInt(request.getParameter("codigo_producto"));
+nombre_producto= request.getParameter("nombre_producto");
+precio_venta= Double.parseDouble(request.getParameter("precio_venta"));
 estado="disabled";
 }
+%>
+<% 
+if(request.getParameter("codigo_producto1")!=null){
+codigo_producto1=Integer.parseInt(request.getParameter("codigo_producto1"));
+nombre_producto1= request.getParameter("nombre_producto1");
+precio_venta1= Double.parseDouble(request.getParameter("precio_venta1"));
+
+}
+%>
+<% 
+if(request.getParameter("codigo_producto2")!=null){
+codigo_producto2=Integer.parseInt(request.getParameter("codigo_producto2"));
+nombre_producto2= request.getParameter("nombre_producto2");
+precio_venta2= Double.parseDouble(request.getParameter("precio_venta2"));
+
+}
+
 %>   
+<%
+if(request.getParameter("valorTotal")!=null){
+	cantidad = Double.parseDouble(request.getParameter("cantidad"));
+	cantidad1 = Double.parseDouble(request.getParameter("cantidad1"));
+	cantidad2 = Double.parseDouble(request.getParameter("cantidad2"));
+	valor_venta = Double.parseDouble(request.getParameter("valor_venta"));
+	valor_venta1 = Double.parseDouble(request.getParameter("valor_venta1"));
+	valor_venta2 = Double.parseDouble(request.getParameter("valor_venta2"));
+	valorTotal = Double.parseDouble(request.getParameter("valorTotal"));
+	totalIva = Double.parseDouble(request.getParameter("totalIva"));
+	totalConIva = Double.parseDouble(request.getParameter("totalConIva"));
+}
+%>
     
 
     <form action="Detalle_ventas" method="post">
        
-        <div><label>Codigo Producto:</label> <input type="number" name="cod" value="<%=cod%>"required> </div>
+        <div><label>Codigo Producto:</label> <input type="text" name="codigo_producto" value="<%=codigo_producto%>"required> </div>
            
-        <div>  <input type="submit" name="consultar" value="Consultar">   </div>
-        <div><label>Nombre Producto</label> <input type="text" name="nombre" value="<%=nombre%>" readonly></div>
+        <div>  <input type="submit" name="consultar" value="Consultar"> </div>
+        <div><label>Nombre Producto</label> <input type="text" name="nombre_producto" value="<%=nombre_producto%>" readonly></div>
 
-         <input type="hidden" name="valor" value="<%=valor%>">               
+         <input type="hidden" name="precioV" value="<%=precio_venta%>">               
 
-        <div><label>Cantidad:</label><input type="number" name="" value=""> </div>
+        <div><label>Cantidad:</label><input type="text" name="cantidad" value="<%=cantidad%>"> </div>
 
             
-        <div><label>Valor Total:</label><input type="number" name="" value=""></div>
+        <div><label>Valor Venta:</label><input type="text" name="valor_venta" value="<%=valor_venta%>">
+			</div>
             
             
         
@@ -236,17 +283,17 @@ estado="disabled";
 
       <form action="Detalle_ventas" method="post">
         
-        <div><label>Codigo Producto:</label> <input type="number" name="cod" value="<%=cod%>"required> </div>
+        <div><label>Codigo Producto:</label> <input type="text" name="codigo_producto1" value="<%=codigo_producto1%>"required> </div>
            
-        <div>  <input type="submit" name="consultar1" value="Consultar">   </div>
-        <div><label>Nombre Producto</label> <input type="text" name="nombre" value="<%=nombre%>"></div>
+        <div>  <input type="submit" name="consultar1" value="Consultar">  </div>
+        <div><label>Nombre Producto</label> <input type="text" name="nombre_producto1" value="<%=nombre_producto1%>"></div>
 
-         <input type="hidden" name="valor" value="<%=valor%>">               
+         <input type="hidden" name="precioV1" value="<%=precio_venta1%>">               
 
-        <div><label>Cantidad:</label><input type="number" name="" value=""> </div>
+        <div><label>Cantidad:</label><input type="text" name="cantidad1" value="<%=cantidad1%>"> </div>
 
             
-        <div><label>Valor Total:</label><input type="number" name="" value=""></div>
+        <div><label>Valor venta:</label><input type="text" name="valor_venta1" value="<%=valor_venta1%>"></div>
     </form>
 
     <hr>
@@ -254,17 +301,17 @@ estado="disabled";
 
      <form action="Detalle_ventas" method="post">
        
-        <div><label>Codigo Producto:</label> <input type="number" name="cod" value="<%=cod%>"required> </div>
+        <div><label>Codigo Producto:</label> <input type="text" name="codigo_producto2" value="<%=codigo_producto2%>"required> </div>
            
         <div>  <input type="submit" name="consultar2" value="Consultar">   </div>
-        <div><label>Nombre Producto</label> <input type="text" name="nombre" value="<%=nombre%>"></div>
+        <div><label>Nombre Producto</label> <input type="text" name="nombre_producto2" value="<%=nombre_producto2%>"></div>
 
-         <input type="hidden" name="valor" value="<%=valor%>">               
+         <input type="hidden" name="precioV2" value="<%=precio_venta2%>">               
 
-        <div><label>Cantidad:</label><input type="number" name="" value=""> </div>
+        <div><label>Cantidad:</label><input type="text" name="cantidad2" value="<%=cantidad2%>"> </div>
 
             
-        <div><label>Valor Total:</label><input type="number" name="" value=""></div>
+        <div><label>Valor venta:</label><input type="text" name="valor_venta2" value="<%=valor_venta2%>"></div>
     </form>
 
 </div>
@@ -272,20 +319,26 @@ estado="disabled";
 <hr>
 
 <div class="totales">
-    <form action="" class="final">
+    <form action="Detalle_ventas"  method="post" class="final">
         <div>
             <label>Valor Total:</label>
-            <input type="number" name="" value="">
+            <input type="text" name="valorTotal" value="<%=valorTotal%>">
         </div>
 
         <div>
             <label>Total Iva:</label>
-            <input type="number" name="" value="">
+            <input type="text" name="totalIva" value="<%=totalIva%>">
         </div>
 
         <div>
             <label>Total con Iva:</label>
-            <input type="number" name="" value="">
+            <input type="text" name="totalConIva" value="<%=totalConIva%>">
+        </div>
+        
+        
+        <div>
+            
+            <input type="submit" name="calcular" value="calcular">
         </div>
 
         <div>
@@ -300,13 +353,13 @@ estado="disabled";
     </form>
 </div>
 
-
 <%
 if(request.getParameter("men")!=null){
 String mensaje=request.getParameter("men");
 out.print("<script>alert('"+mensaje+"');</script>");
 }
 %>
+
 
 <footer >
     <div>

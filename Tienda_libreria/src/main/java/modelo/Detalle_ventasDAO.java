@@ -38,26 +38,37 @@ public class Detalle_ventasDAO {
 		
 	}
 	
-	/*
-	
-	public Detalle_ventasDTO valores(double valor) {
-		Detalle_ventasDTO deta=null;
-		Detalle_ventasDTO ventas = new Detalle_ventasDTO(0, valor, null);
-	 //Consultar precio del libro que se presto
-	 String sql="select precio_prestamo from libro where isbn=?";	
-	 ps=conec.prepareStatement(sql);
-	 ps.setDouble(1, ventas.getValor_venta() );
-	 res=ps.executeQuery();
-	 int precio=0;
-	 while(res.next()) {
-	  precio=res.getInt(1); 
-	 }
-	*/
-	
-	
+	public ClientesDTO Buscar_Cliente (int cedula) {
+		
 
+    	ClientesDTO cli=null;
+    	try {
+    	String sql="SELECT cedula_cliente,nombre_cliente FROM clientes where cedula_cliente=?";
+    	ps=conec.prepareStatement(sql);
+    	ps.setInt(1, cedula);
+    	res=ps.executeQuery();
+    	while(res.next()) {
+    		cli= new ClientesDTO(res.getInt(1),res.getString(2));
+    	}
+    	}catch(SQLException ex) {
+    		JOptionPane.showMessageDialog(null, "Error al Consultar"+ ex);
+    	}
+    	return cli;
+    }
+    
+// }
 	
-
+	
+	
+	public double valor_venta (double valor,double valor1, double valor2) {
+		
+		double valor_venta = valor + valor1 + valor2;
+		return valor_venta;
+		
+	}
 }
+	
+
+
 	
 	

@@ -57,7 +57,7 @@ public class Productos extends HttpServlet {
 	      	}
 			escribir.close();
 			file.close();
-			JOptionPane.showMessageDialog(null, "Se Cargo el Archivo Correctamente.");
+			//JOptionPane.showMessageDialog(null, "Se Cargo el Archivo Correctamente.");
 			if(prodao.Cargar_Productoscsv(Url+"productos.csv")) {
 				response.sendRedirect("productos.jsp?men=Se Inserto Los Libros Correctamente");
 			}else
