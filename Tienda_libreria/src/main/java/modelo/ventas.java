@@ -3,6 +3,7 @@ package modelo;
 public class ventas {
 	
 	private int codigo_venta;
+	
 	private double ivaventa;
 	private double total_venta;
 	private double valor_venta;
@@ -10,16 +11,28 @@ public class ventas {
 	private int cedula_usuarios;
 	
 	
-	public ventas(int codigo_venta, double ivaventa, double total_venta, double valor_venta, int cedula_clientes,
+	public ventas( double ivaventa, double total_venta, double valor_venta, int cedula_clientes,
 			int cedula_usuarios) {
-		super();
-		this.codigo_venta = codigo_venta;
+	
+		
 		this.ivaventa = ivaventa;
 		this.total_venta = total_venta;
 		this.valor_venta = valor_venta;
 		this.cedula_clientes = cedula_clientes;
 		this.cedula_usuarios = cedula_usuarios;
 	}
+
+	
+	
+	
+	
+
+	public ventas(int codigo_venta) {
+		super();
+		this.codigo_venta = codigo_venta;
+	}
+
+
 
 
 	public int getCodigo_venta() {
