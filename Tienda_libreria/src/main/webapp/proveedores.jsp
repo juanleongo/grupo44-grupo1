@@ -83,8 +83,8 @@ crossorigin="anonymous">
         <li>
 
 
-            <a href="" class="opcion">
-                Reporte
+            <a href="Reportes.jsp" class="opcion">
+                Reportes
             </a>
         
         </li>
@@ -140,11 +140,13 @@ estado="disabled";
             </form>
 
         </div>
-        <div class="imagen">
-            	<img alt="" src="img/proveedores.png">
+    <div class="imagen">
+            	<img alt="" src="img/prov.png">
             </div>
+            
+             
              </div>
-        
+       
         </div>
 
 

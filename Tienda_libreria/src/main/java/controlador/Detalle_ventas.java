@@ -115,6 +115,7 @@ public class Detalle_ventas extends HttpServlet {
 			}
 
 		}
+		
 
 		if (request.getParameter("calcular") != null) {
 			double cantidad = 0, cantidad1 = 0, cantidad2= 0, 

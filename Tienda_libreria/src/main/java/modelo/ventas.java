@@ -3,6 +3,7 @@
 public class ventas {
 	
 	private int codigo_venta;
+	
 	private double ivaventa;
 	private double total_venta;
 	private double valor_venta;
@@ -12,7 +13,11 @@ public class ventas {
 	
 	public ventas(int codigo_venta, double ivaventa, double total_venta, double valor_venta, int cedula_clientes,
 			int cedula_usuarios) {
+<<<<<<< HEAD
 		
+=======
+	
+>>>>>>> ee92f1def3008aaa58f2a3ec0fca6699c969ebee
 		this.codigo_venta = codigo_venta;
 		this.ivaventa = ivaventa;
 		this.total_venta = total_venta;
@@ -25,6 +30,18 @@ public class ventas {
 		
 		this.codigo_venta = codigo_venta;
 	}
+
+
+	
+	
+	
+	
+
+	public ventas(int codigo_venta) {
+		super();
+		this.codigo_venta = codigo_venta;
+	}
+
 
 
 

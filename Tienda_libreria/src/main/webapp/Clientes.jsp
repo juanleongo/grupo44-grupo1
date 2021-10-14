@@ -82,8 +82,8 @@ crossorigin="anonymous">
         <li>
 
 
-            <a href="" class="opcion">
-                Reporte
+            <a href="Reportes.jsp" class="opcion">
+                Reportes
             </a>
         
         </li>
@@ -137,9 +137,13 @@ estado="disabled";
                         <input type="submit" name="consultar" value="Consultar"></div>
                 </fieldset>
             </form>
+            
+             
             <div class="imagen">
             	<img alt="" src="img/libros.png">
             </div>
+            
+             
             </div>
 
         
