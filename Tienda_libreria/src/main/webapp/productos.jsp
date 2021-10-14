@@ -84,8 +84,8 @@ crossorigin="anonymous">
         <li>
 
 
-            <a href="" class="opcion">
-                Reporte
+            <a href="Reportes.jsp" class="opcion">
+                Reportes
             </a>
         
         </li>
