@@ -11,10 +11,10 @@ public class ventas {
 	private int cedula_usuarios;
 	
 	
-	public ventas( double ivaventa, double total_venta, double valor_venta, int cedula_clientes,
+	public ventas(int codigo_venta, double ivaventa, double total_venta, double valor_venta, int cedula_clientes,
 			int cedula_usuarios) {
 	
-		
+		this.codigo_venta = codigo_venta;
 		this.ivaventa = ivaventa;
 		this.total_venta = total_venta;
 		this.valor_venta = valor_venta;

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
@@ -136,6 +137,28 @@ public class Detalle_ventasDAO {
 		return valor_venta;
 		
 	}
+	
+	
+	public ArrayList<ventas> cargarLibros(){
+		
+		ventas lib=null;
+		ArrayList<ventas> lista= new ArrayList<>();
+		try {
+		String sql="select * from ventas";	
+		ps=conec.prepareStatement(sql);
+		res=ps.executeQuery();
+		while(res.next()) {
+			lib= new ventas(res.getInt(1),res.getDouble(2),res.getDouble(3),res.getDouble(4),res.getInt(1),res.getInt(1));
+			lista.add(lib);
+		}
+		}catch(SQLException ex) {
+			JOptionPane.showMessageDialog(null,"Error al consultar la tabla de ventas" +ex);
+		}
+		 return lista;
+	}  
+	
+	
+	
 }
 	
 

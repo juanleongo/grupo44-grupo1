@@ -15,7 +15,7 @@
 		<div><button class="listaUsuarios">Lista usuarios</button></div>
 		
 		<div><button class="listaClientes">Listado Clientes</button></div>
-	<div><button id="ventasClientes">Ventas Clientes</button></div>
+	<div><button class="ventasClientes">Ventas Clientes</button></div>
 	
 
 		

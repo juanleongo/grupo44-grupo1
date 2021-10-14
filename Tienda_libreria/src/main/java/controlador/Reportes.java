@@ -16,8 +16,10 @@ import com.google.gson.Gson;
 
 import modelo.ClienteDAO;
 import modelo.ClientesDTO;
+import modelo.Detalle_ventasDAO;
 import modelo.UsuariosDAO;
 import modelo.UsuariosDTO;
+import modelo.ventas;
 
 /**
  * Servlet implementation class Reportes
@@ -59,6 +61,16 @@ public class Reportes extends HttpServlet {
 				salida.println(datos.toJson(lista));
 			}
 
+
+			if(op.equals("VENTAS")) {
+				Detalle_ventasDAO pre= new Detalle_ventasDAO();
+				ArrayList<ventas> lista= new ArrayList<>();
+				lista=pre.cargarLibros();
+				salida.println(datos.toJson(lista));
+			}
+			
+			
+			
 }
 }
 
