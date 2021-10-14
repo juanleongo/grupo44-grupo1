@@ -138,12 +138,12 @@ estado="disabled";
                 </fieldset>
             </form>
             
-             <!-- 
+             
             <div class="imagen">
             	<img alt="" src="img/libros.png">
             </div>
             
-             -->
+             
             </div>
 
         

@@ -140,11 +140,11 @@ estado="disabled";
             </form>
 
         </div>
-   <!--       <div class="imagen">
-            	<img alt="" src="img/proveedores.png">
+    <div class="imagen">
+            	<img alt="" src="img/prov.png">
             </div>
             
-             -->
+             
              </div>
        
         </div>
