@@ -212,9 +212,10 @@ nombre_cliente= request.getParameter("nombre");
     
 <%!String nombre_producto="", nombre_producto1="",nombre_producto2="", estado="";
 int codigo_producto, codigo_producto1 ,codigo_producto2;
-double valor_venta, valor_venta1, valor_venta2,
+double totalVenta, totalVenta1, totalVenta2,
+	   ivacompra , ivacompra1 , ivacompra2,
 	   precio_venta,precio_venta1,precio_venta2,
-       cantidad, cantidad1,cantidad2,
+       cantidad = 0 , cantidad1,cantidad2,
        valorTotal, totalIva ,totalConIva ;
 
 %>
@@ -224,6 +225,7 @@ if(request.getParameter("codigo_producto")!=null){
 codigo_producto=Integer.parseInt(request.getParameter("codigo_producto"));
 nombre_producto= request.getParameter("nombre_producto");
 precio_venta= Double.parseDouble(request.getParameter("precio_venta"));
+ivacompra = Double.parseDouble(request.getParameter("ivacompra"));
 estado="disabled";
 }
 %>
@@ -232,6 +234,7 @@ if(request.getParameter("codigo_producto1")!=null){
 codigo_producto1=Integer.parseInt(request.getParameter("codigo_producto1"));
 nombre_producto1= request.getParameter("nombre_producto1");
 precio_venta1= Double.parseDouble(request.getParameter("precio_venta1"));
+ivacompra1 = Double.parseDouble(request.getParameter("ivacompra1"));
 
 }
 %>
@@ -240,6 +243,7 @@ if(request.getParameter("codigo_producto2")!=null){
 codigo_producto2=Integer.parseInt(request.getParameter("codigo_producto2"));
 nombre_producto2= request.getParameter("nombre_producto2");
 precio_venta2= Double.parseDouble(request.getParameter("precio_venta2"));
+ivacompra2 = Double.parseDouble(request.getParameter("ivacompra2"));
 
 }
 
@@ -249,9 +253,9 @@ if(request.getParameter("valorTotal")!=null){
 	cantidad = Double.parseDouble(request.getParameter("cantidad"));
 	cantidad1 = Double.parseDouble(request.getParameter("cantidad1"));
 	cantidad2 = Double.parseDouble(request.getParameter("cantidad2"));
-	valor_venta = Double.parseDouble(request.getParameter("valor_venta"));
-	valor_venta1 = Double.parseDouble(request.getParameter("valor_venta1"));
-	valor_venta2 = Double.parseDouble(request.getParameter("valor_venta2"));
+	totalVenta = Double.parseDouble(request.getParameter("totalVenta"));
+	totalVenta1 = Double.parseDouble(request.getParameter("totalVenta1"));
+	totalVenta2 = Double.parseDouble(request.getParameter("totalVenta2"));
 	valorTotal = Double.parseDouble(request.getParameter("valorTotal"));
 	totalIva = Double.parseDouble(request.getParameter("totalIva"));
 	totalConIva = Double.parseDouble(request.getParameter("totalConIva"));
@@ -266,60 +270,63 @@ if(request.getParameter("valorTotal")!=null){
         <div>  <input type="submit" name="consultar" value="Consultar"> </div>
         <div><label>Nombre Producto</label> <input type="text" name="nombre_producto" value="<%=nombre_producto%>" readonly></div>
 
-         <input type="hidden" name="precioV" value="<%=precio_venta%>">               
+         <input type="hidden" name="precioV" value="<%=precio_venta%>">
+          <input type="hidden" name="ivap" value="<%=ivacompra%>">                              
 
         <div><label>Cantidad:</label><input type="text" name="cantidad" value="<%=cantidad%>"> </div>
 
             
-        <div><label>Valor Venta:</label><input type="text" name="valor_venta" value="<%=valor_venta%>">
+        <div><label>Valor Venta:</label><input type="text" name="valor_venta" value="<%=totalVenta%>">
 			</div>
             
             
         
-    </form>
+   
 
     <hr>
 
 
-      <form action="Detalle_ventas" method="post">
+    
         
         <div><label>Codigo Producto:</label> <input type="text" name="codigo_producto1" value="<%=codigo_producto1%>"required> </div>
            
         <div>  <input type="submit" name="consultar1" value="Consultar">  </div>
         <div><label>Nombre Producto</label> <input type="text" name="nombre_producto1" value="<%=nombre_producto1%>"></div>
 
-         <input type="hidden" name="precioV1" value="<%=precio_venta1%>">               
+         <input type="hidden" name="precioV1" value="<%=precio_venta1%>">
+         <input type="hidden" name="ivap1" value="<%=ivacompra1%>">                
 
         <div><label>Cantidad:</label><input type="text" name="cantidad1" value="<%=cantidad1%>"> </div>
 
             
-        <div><label>Valor venta:</label><input type="text" name="valor_venta1" value="<%=valor_venta1%>"></div>
-    </form>
+        <div><label>Valor venta:</label><input type="text" name="valor_venta1" value="<%=totalVenta1%>"></div>
+    
 
     <hr>
 
 
-     <form action="Detalle_ventas" method="post">
+     
        
         <div><label>Codigo Producto:</label> <input type="text" name="codigo_producto2" value="<%=codigo_producto2%>"required> </div>
            
         <div>  <input type="submit" name="consultar2" value="Consultar">   </div>
         <div><label>Nombre Producto</label> <input type="text" name="nombre_producto2" value="<%=nombre_producto2%>"></div>
 
-         <input type="hidden" name="precioV2" value="<%=precio_venta2%>">               
+         <input type="hidden" name="precioV2" value="<%=precio_venta2%>">
+         <input type="hidden" name="ivap2" value="<%=ivacompra2%>">                
 
         <div><label>Cantidad:</label><input type="text" name="cantidad2" value="<%=cantidad2%>"> </div>
 
             
-        <div><label>Valor venta:</label><input type="text" name="valor_venta2" value="<%=valor_venta2%>"></div>
-    </form>
+        <div><label>Valor venta:</label><input type="text" name="valor_venta2" value="<%=totalVenta2%>"></div>
+    
 
 </div>
 
 <hr>
 
 <div class="totales">
-    <form action="Detalle_ventas"  method="post" class="final">
+    
         <div>
             <label>Valor Total:</label>
             <input type="text" name="valorTotal" value="<%=valorTotal%>">

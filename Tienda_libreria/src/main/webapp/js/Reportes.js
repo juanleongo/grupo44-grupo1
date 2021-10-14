@@ -1,8 +1,8 @@
 $(document).ready(function(){
 
 
-	alert("Hola Mundo....");
-	console.log("Hola Muchachos grupo 44")
+	
+	console.log("Hola Muchachos grupo 44");
 
 
 function listaUsuarios(){
@@ -77,13 +77,13 @@ $.ajax({
 
 $('.listaUsuarios').on('click', function(){
 	
-alert("Entro a boton")	
+
 	listaUsuarios();
 })
 
 
 $('.listaClientes').on('click',function(){
-	alert("Entro a boton")	
+	
     listaClientes();
 
 

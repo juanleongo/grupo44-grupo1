@@ -1,4 +1,4 @@
-package modelo;
+
 
 public class ventas {
 	
@@ -12,7 +12,7 @@ public class ventas {
 	
 	public ventas(int codigo_venta, double ivaventa, double total_venta, double valor_venta, int cedula_clientes,
 			int cedula_usuarios) {
-		super();
+		
 		this.codigo_venta = codigo_venta;
 		this.ivaventa = ivaventa;
 		this.total_venta = total_venta;
@@ -20,6 +20,12 @@ public class ventas {
 		this.cedula_clientes = cedula_clientes;
 		this.cedula_usuarios = cedula_usuarios;
 	}
+	
+	public ventas(int codigo_venta) {
+		
+		this.codigo_venta = codigo_venta;
+	}
+
 
 
 	public int getCodigo_venta() {

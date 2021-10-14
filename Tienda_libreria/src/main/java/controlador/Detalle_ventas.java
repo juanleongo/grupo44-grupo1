@@ -27,7 +27,11 @@ public class Detalle_ventas extends HttpServlet {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -39,12 +43,13 @@ public class Detalle_ventas extends HttpServlet {
 			ProductosDTO deta = DETADAO.Buscar_Producto(codigo_producto);
 			if (deta != null) {
 				String nombre_producto;
-				double precio_venta;
+				double precio_venta, ivacompra;
 				codigo_producto = deta.getCodigo_producto();
 				nombre_producto = deta.getNombre_productos();
 				precio_venta = deta.getPrecio_venta();
+				ivacompra = deta.getIvacompra();
 				response.sendRedirect("ventas.jsp?codigo_producto=" + codigo_producto + "&&nombre_producto=" + nombre_producto
-						+ "&&precio_venta=" + precio_venta);
+						+ "&&precio_venta=" + precio_venta+ "&&ivacompra="+ ivacompra);
 			} else {
 
 				JOptionPane.showMessageDialog(null, "El producto no Existe");
@@ -60,12 +65,14 @@ public class Detalle_ventas extends HttpServlet {
 			ProductosDTO deta = DETADAO.Buscar_Producto(codigo_producto1);
 			if (deta != null) {
 				String nombre_producto1;
-				double precio_venta1;
+				double precio_venta1,ivacompra1;
 				codigo_producto1 = deta.getCodigo_producto();
 				nombre_producto1 = deta.getNombre_productos();
 				precio_venta1 = deta.getPrecio_venta();
+				ivacompra1 = deta.getIvacompra();
 				response.sendRedirect("ventas.jsp?codigo_producto1=" + codigo_producto1 + "&&nombre_producto1="
-						+ nombre_producto1 + "&&precio_venta1=" + precio_venta1);
+						+ nombre_producto1 + "&&precio_venta1=" + precio_venta1
+						+ "&&ivacompra1="+ ivacompra1);
 			} else {
 
 				JOptionPane.showMessageDialog(null, "El producto no Existe");
@@ -79,12 +86,13 @@ public class Detalle_ventas extends HttpServlet {
 			ProductosDTO deta = DETADAO.Buscar_Producto(codigo_producto2);
 			if (deta != null) {
 				String nombre_producto2;
-				double precio_venta2;
+				double precio_venta2, ivacompra2;
 				codigo_producto2 = deta.getCodigo_producto();
 				nombre_producto2 = deta.getNombre_productos();
 				precio_venta2= deta.getPrecio_venta();
-				response.sendRedirect("ventas.jsp?codigo_producto2=" + codigo_producto2 + "&&nombre_producto2=" + nombre_producto2
-						+ "&&precio_venta2=" + precio_venta2);
+				ivacompra2 = deta.getIvacompra();
+				response.sendRedirect("ventas.jsp?codigo_producto2="+codigo_producto2+"&&nombre_producto2=" + nombre_producto2
+					+"&&precio_venta2="+precio_venta2 +"&&ivacompra2="+ ivacompra2);
 			} else {
 
 				JOptionPane.showMessageDialog(null, "El producto no Existe");
@@ -112,25 +120,35 @@ public class Detalle_ventas extends HttpServlet {
 			double cantidad = 0, cantidad1 = 0, cantidad2= 0, 
 					precioV = 0 , precioV1 = 0 , precioV2=0,
 					ivaProducto = 0,ivaProducto1 = 0,ivaProducto2 = 0,
+					totalventaconiva = 0,totalventaconiva1 = 0,totalventaconiva2 = 0,
 					totalVenta = 0 , totalVenta1 = 0 , totalVenta2=0,
 					valorTotal =0, totalIva= 0, totalConIva = 0;
 					
-										
+									
 			cantidad = Double.parseDouble(request.getParameter("cantidad"));
 			cantidad1 = Double.parseDouble(request.getParameter("cantidad1"));
 			cantidad2 = Double.parseDouble(request.getParameter("cantidad2"));
+			
 			
 			precioV= Double.parseDouble(request.getParameter("precioV"));
 			precioV1= Double.parseDouble(request.getParameter("precioV1"));
 			precioV2= Double.parseDouble(request.getParameter("precioV2"));
 			
+			
+			
 			totalVenta = cantidad * precioV;
 			totalVenta1 = cantidad1 * precioV1;
 			totalVenta2 = cantidad2 * precioV2;
 			
-			ivaProducto = totalVenta / 100 * 19 ;
-			ivaProducto1 = totalVenta1 / 100 * 19 ;
-			ivaProducto2 = totalVenta2 / 100 * 19 ;
+			ivaProducto = totalVenta / 100 * Double.parseDouble(request.getParameter("ivap")); 
+			ivaProducto1 = totalVenta1 / 100 * Double.parseDouble(request.getParameter("ivap1")) ;
+			ivaProducto2 = totalVenta2 / 100 * Double.parseDouble(request.getParameter("ivap2"));
+			
+			totalventaconiva = totalVenta + ivaProducto ;
+			totalventaconiva1 = totalVenta1 + ivaProducto1 ;
+			totalventaconiva2 = totalVenta2 + ivaProducto2;
+			
+			
 			
 			valorTotal = totalVenta+ totalVenta1+totalVenta2;
 			totalIva = ivaProducto +ivaProducto1 + ivaProducto2;
