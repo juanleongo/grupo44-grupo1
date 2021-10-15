@@ -6,9 +6,89 @@
 <meta charset="UTF-8">
 <title>Book City - Ventas</title>
 <!------------ ESTILOS  ----------------->
-<link rel="stylesheet" href="css/ventas.css">
-<link rel="stylesheet" href="css/general.css">
 <link rel="stylesheet" href="css/usuariosClientes.css">
+<link rel="stylesheet" href="css/general.css">
+<style type="text/css"> /*ESTILO DE VENTAS*/
+	:root{
+    --cream-brulee: #ffea9e;
+    --buttercup: #f5b00b;
+    --dark-ebony: #3d1f04;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+}
+
+ul .ventas{
+    background-color: #f5af0b70;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.contenedor{
+    display: flex;
+    flex-wrap: wrap;
+
+
+}
+
+form{
+    width: 100%;
+    background-color: #fff5d3;
+    display: flex;
+    padding: 20px;
+    margin: 10px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+form div{
+    display: flex;
+    align-items: center;
+    font-size: 1.1em;
+    flex-wrap: wrap;
+    font-family: 'Montserrat' , sans-serif
+}
+
+form input[type="text"], form input[type="number"]{
+    width: 90%;
+    padding: 10px 20px;
+    margin: 5px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+
+form input[type="submit"]{
+    background-color:var(--buttercup);
+    color: black;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bolder;
+    transition: 0.4s;
+    text-decoration: none;
+}
+
+.totales{
+    display: flex;
+    justify-content: end;
+}
+
+
+.final{
+    width: 80%;
+
+   
+    
+}
+</style>
+
 
 
 <!------------ FUENTES ----------------->
@@ -43,7 +123,7 @@ crossorigin="anonymous">
         </a>
     </nav>
     
-      <ul>
+    <ul>
         <li>
             <a href="usuarios.jsp" class="opcion">
                 Usuarios
@@ -92,14 +172,12 @@ crossorigin="anonymous">
         </ul>
 
          <h1>VENTAS</h1>
-         
-         
 
 <%!String nombre_cliente="";
-int cedula=0;
+String  cedula;
 %>         
 <% if(request.getParameter("cedula")!=null){
-cedula=Integer.parseInt(request.getParameter("cedula"));
+cedula=request.getParameter("cedula");
 nombre_cliente= request.getParameter("nombre");
 
 }
@@ -107,7 +185,7 @@ nombre_cliente= request.getParameter("nombre");
          
 
 <div class="contenedor">
-    <form action="Detalle_ventas" method="post" class="cliente">
+    <form action="Detalle_ventas" method="post">
         <div>
             <label>Cedula:</label>
             <input type="number" name="cedula" value="<%=cedula%>">
@@ -126,18 +204,19 @@ nombre_cliente= request.getParameter("nombre");
             <label>Consec:</label>  <!-- PENDIENTE SABER DATO -->
             <input type="text" name="" value="">
         </div>
-    </form>
+   
 
 
 
     <hr>
     
 <%!String nombre_producto="", nombre_producto1="",nombre_producto2="", estado="";
-int codigo_producto, codigo_producto1 ,codigo_producto2;
-double totalVenta, totalVenta1, totalVenta2,
+int codigo_producto, codigo_producto1 ,codigo_producto2,
+        cantidad  , cantidad1,cantidad2;
+double totalventaconiva, totalventaconiva1,totalventaconiva2,
 	   ivacompra , ivacompra1 , ivacompra2,
 	   precio_venta,precio_venta1,precio_venta2,
-       cantidad = 0 , cantidad1,cantidad2,
+       totalventa,totalventa1,totalventa2,
        valorTotal, totalIva ,totalConIva ;
 
 %>
@@ -172,24 +251,24 @@ ivacompra2 = Double.parseDouble(request.getParameter("ivacompra2"));
 %>   
 <%
 if(request.getParameter("valorTotal")!=null){
-	cantidad = Double.parseDouble(request.getParameter("cantidad"));
-	cantidad1 = Double.parseDouble(request.getParameter("cantidad1"));
-	cantidad2 = Double.parseDouble(request.getParameter("cantidad2"));
-	totalVenta = Double.parseDouble(request.getParameter("totalVenta"));
-	totalVenta1 = Double.parseDouble(request.getParameter("totalVenta1"));
-	totalVenta2 = Double.parseDouble(request.getParameter("totalVenta2"));
+	cantidad = Integer.parseInt(request.getParameter("cantidad"));
+	cantidad1 = Integer.parseInt(request.getParameter("cantidad1"));
+	cantidad2 = Integer.parseInt(request.getParameter("cantidad2"));
+	totalventaconiva = Double.parseDouble(request.getParameter("totalventaconiva"));
+	totalventaconiva1 = Double.parseDouble(request.getParameter("totalventaconiva1"));
+	totalventaconiva2 = Double.parseDouble(request.getParameter("totalventaconiva2"));
 	valorTotal = Double.parseDouble(request.getParameter("valorTotal"));
 	totalIva = Double.parseDouble(request.getParameter("totalIva"));
 	totalConIva = Double.parseDouble(request.getParameter("totalConIva"));
+	totalventa = Double.parseDouble(request.getParameter("totalventa"));
+	totalventa1 = Double.parseDouble(request.getParameter("totalventa1"));
+	totalventa2 = Double.parseDouble(request.getParameter("totalventa2"));
+	
 }
 %>
     
 
-    <form action="Detalle_ventas" method="post" class="productos">
-    
-    <div class="productosGrande">
-    
-    <div class="individuales uno">
+   
        
         <div><label>Codigo Producto:</label> <input type="text" name="codigo_producto" value="<%=codigo_producto%>"required> </div>
            
@@ -197,21 +276,23 @@ if(request.getParameter("valorTotal")!=null){
         <div><label>Nombre Producto</label> <input type="text" name="nombre_producto" value="<%=nombre_producto%>" readonly></div>
 
          <input type="hidden" name="precioV" value="<%=precio_venta%>">
-          <input type="hidden" name="ivap" value="<%=ivacompra%>">                              
+          <input type="hidden" name="ivap" value="<%=ivacompra%>"> 
+          <input type="hidden" name="totalventa" value="<%=totalventa%>">                              
 
         <div><label>Cantidad:</label><input type="text" name="cantidad" value="<%=cantidad%>"> </div>
 
             
-        <div><label>Valor Venta:</label><input type="text" name="valor_venta" value="<%=totalVenta%>">
+        <div><label>Valor Venta:</label><input type="text" name="valor_venta" value="<%=totalventaconiva%>">
 			</div>
             
             
-    </div>    
+        
    
 
-    
+    <hr>
 
-    <div class="individuales">
+
+    
         
         <div><label>Codigo Producto:</label> <input type="text" name="codigo_producto1" value="<%=codigo_producto1%>"required> </div>
            
@@ -219,19 +300,18 @@ if(request.getParameter("valorTotal")!=null){
         <div><label>Nombre Producto</label> <input type="text" name="nombre_producto1" value="<%=nombre_producto1%>"></div>
 
          <input type="hidden" name="precioV1" value="<%=precio_venta1%>">
-         <input type="hidden" name="ivap1" value="<%=ivacompra1%>">                
+         <input type="hidden" name="ivap1" value="<%=ivacompra1%>">
+         <input type="hidden" name="totalventa1" value="<%=totalventa1%>">                   
 
         <div><label>Cantidad:</label><input type="text" name="cantidad1" value="<%=cantidad1%>"> </div>
 
             
-        <div><label>Valor venta:</label><input type="text" name="valor_venta1" value="<%=totalVenta1%>"></div>
+        <div><label>Valor venta:</label><input type="text" name="valor_venta1" value="<%=totalventaconiva1%>"></div>
     
 
-    
+    <hr>
 
-    </div>
-    
-    <div class="individuales">
+
      
        
         <div><label>Codigo Producto:</label> <input type="text" name="codigo_producto2" value="<%=codigo_producto2%>"required> </div>
@@ -240,22 +320,20 @@ if(request.getParameter("valorTotal")!=null){
         <div><label>Nombre Producto</label> <input type="text" name="nombre_producto2" value="<%=nombre_producto2%>"></div>
 
          <input type="hidden" name="precioV2" value="<%=precio_venta2%>">
-         <input type="hidden" name="ivap2" value="<%=ivacompra2%>">                
+         <input type="hidden" name="ivap2" value="<%=ivacompra2%>">  
+         <input type="hidden" name="totalventa2" value="<%=totalventa2%>">                 
 
         <div><label>Cantidad:</label><input type="text" name="cantidad2" value="<%=cantidad2%>"> </div>
 
             
-        <div><label>Valor venta:</label><input type="text" name="valor_venta2" value="<%=totalVenta2%>"></div>
+        <div><label>Valor venta:</label><input type="text" name="valor_venta2" value="<%=totalventaconiva2%>"></div>
     
 
 </div>
 
-</div>
+<hr>
 
-
-
-
-<div class="precios">
+<div class="totales">
     
         <div>
             <label>Valor Total:</label>
@@ -272,17 +350,18 @@ if(request.getParameter("valorTotal")!=null){
             <input type="text" name="totalConIva" value="<%=totalConIva%>">
         </div>
         
-      
+        
         <div>
             
-            <input type="submit" name="calcular" value="Calcular">
+            <input type="submit" name="calcular" value="calcular">
         </div>
 
         <div>
-            <input type="submit" name="" value="Confirmar">
+            <input type="submit" name="confirmar" value="Confirmar">
         </div>
         
-        </div>
+        
+        
         
         
         
@@ -297,11 +376,10 @@ out.print("<script>alert('"+mensaje+"');</script>");
 %>
 
 
-<!--  <footer >
+<footer >
     <div>
     © 2021 Copyright
     </div>
     </footer>
-    -->
 </body>
 </html>
