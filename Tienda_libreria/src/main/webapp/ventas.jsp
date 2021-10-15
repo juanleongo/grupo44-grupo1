@@ -8,87 +8,7 @@
 <!------------ ESTILOS  ----------------->
 <link rel="stylesheet" href="css/usuariosClientes.css">
 <link rel="stylesheet" href="css/general.css">
-<style type="text/css"> /*ESTILO DE VENTAS*/
-	:root{
-    --cream-brulee: #ffea9e;
-    --buttercup: #f5b00b;
-    --dark-ebony: #3d1f04;
-}
-
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: 0;
-}
-
-ul .ventas{
-    background-color: #f5af0b70;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
-
-.contenedor{
-    display: flex;
-    flex-wrap: wrap;
-
-
-}
-
-form{
-    width: 100%;
-    background-color: #fff5d3;
-    display: flex;
-    padding: 20px;
-    margin: 10px;
-    justify-content: space-around;
-    align-items: center;
-}
-
-form div{
-    display: flex;
-    align-items: center;
-    font-size: 1.1em;
-    flex-wrap: wrap;
-    font-family: 'Montserrat' , sans-serif
-}
-
-form input[type="text"], form input[type="number"]{
-    width: 90%;
-    padding: 10px 20px;
-    margin: 5px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-
-
-form input[type="submit"]{
-    background-color:var(--buttercup);
-    color: black;
-    padding: 10px 20px;
-    margin: 0 10px;
-    border: none;
-    border-radius: 10px;
-    font-weight: bolder;
-    transition: 0.4s;
-    text-decoration: none;
-}
-
-.totales{
-    display: flex;
-    justify-content: end;
-}
-
-
-.final{
-    width: 80%;
-
-   
-    
-}
-</style>
-
+<link rel="stylesheet" href="css/ventas.css">
 
 
 <!------------ FUENTES ----------------->
@@ -186,6 +106,8 @@ nombre_cliente= request.getParameter("nombre");
 
 <div class="contenedor">
     <form action="Detalle_ventas" method="post">
+    
+    <div class="cliente">
         <div>
             <label>Cedula:</label>
             <input type="number" name="cedula" value="<%=cedula%>">
@@ -206,9 +128,9 @@ nombre_cliente= request.getParameter("nombre");
         </div>
    
 
+</div>
 
-
-    <hr>
+    
     
 <%!String nombre_producto="", nombre_producto1="",nombre_producto2="", estado="";
 int codigo_producto, codigo_producto1 ,codigo_producto2,
@@ -267,8 +189,12 @@ if(request.getParameter("valorTotal")!=null){
 }
 %>
     
+<div class="productos">
 
-   
+	<div class="productosGrande">
+    
+    
+    <div class="individuales uno">
        
         <div><label>Codigo Producto:</label> <input type="text" name="codigo_producto" value="<%=codigo_producto%>"required> </div>
            
@@ -286,13 +212,12 @@ if(request.getParameter("valorTotal")!=null){
 			</div>
             
             
-        
+        </div>
    
 
-    <hr>
 
 
-    
+        <div class="individuales">
         
         <div><label>Codigo Producto:</label> <input type="text" name="codigo_producto1" value="<%=codigo_producto1%>"required> </div>
            
@@ -309,7 +234,10 @@ if(request.getParameter("valorTotal")!=null){
         <div><label>Valor venta:</label><input type="text" name="valor_venta1" value="<%=totalventaconiva1%>"></div>
     
 
-    <hr>
+    </div>
+    
+    
+       <div class="individuales">
 
 
      
@@ -328,12 +256,14 @@ if(request.getParameter("valorTotal")!=null){
             
         <div><label>Valor venta:</label><input type="text" name="valor_venta2" value="<%=totalventaconiva2%>"></div>
     
+    </div>
+    
 
 </div>
 
-<hr>
 
-<div class="totales">
+
+<div class="precios">
     
         <div>
             <label>Valor Total:</label>
@@ -363,10 +293,12 @@ if(request.getParameter("valorTotal")!=null){
         
         
         
+        </div>
         
+        </div>
         
     </form>
-</div>
+</div> 
 
 <%
 if(request.getParameter("men")!=null){

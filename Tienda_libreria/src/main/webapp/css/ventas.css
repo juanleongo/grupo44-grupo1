@@ -17,22 +17,21 @@
 	flex-wrap:wrap;
 }
 
-.contenedor .cliente{
+.contenedor form .cliente{
 	width:100%;
 	display:flex;
 	padding:10px;
 	justify-content: space-around;
 	align-content: start;
-	border-bottom: 0.5px solid black;
 }
 
-.contenedor .cliente div{
+.contenedor form .cliente div{
 	font-family: 'Montserrat' , sans-serif;
 	font-size: 1.1em;
 }
 
-.contenedor .cliente div input[type=number],
-.contenedor .cliente div input[type=text]{
+.contenedor form .cliente div input[type=number],
+.contenedor form .cliente div input[type=text]{
 	width: 100%;
 	padding:5px;
   display: inline-block;
@@ -41,7 +40,7 @@
 }
 
 
-.contenedor .cliente div input[type=submit]{
+.contenedor form .cliente div input[type=submit]{
 	background-color:var(--buttercup);
     color: black;
     padding: 10px 20px;
@@ -53,7 +52,7 @@
     text-decoration: none;
 }
 
-.contenedor .cliente div input[type=submit]:hover{
+.contenedor form .cliente div input[type=submit]:hover{
 	background-color: #a57a14;
 }
 
@@ -66,18 +65,15 @@
 	padding:10px;
 	justify-content: space-around;
 	align-content: start;
-	border-bottom: 0.5px solid black;
 	
 }
 
 .contenedor .productosGrande .individuales{
-	border-right: 0.5px solid black;
+	border: 0.5px solid black;
 	padding: 20px;
 }
 
-.contenedor .productosGrande .uno{
-	border-left: 0.5px solid black;
-}
+
 .contenedor .productosGrande div{
 	font-family: 'Montserrat' , sans-serif;
 	font-size: 1.1em;
