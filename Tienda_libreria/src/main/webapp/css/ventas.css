@@ -12,6 +12,13 @@
     box-sizing: 0;
 }
 
+
+ul .ventas{
+	    background-color: #f5af0b70;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
 .contenedor{
 	display: flex;
 	flex-wrap:wrap;
