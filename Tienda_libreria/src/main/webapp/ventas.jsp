@@ -6,89 +6,9 @@
 <meta charset="UTF-8">
 <title>Book City - Ventas</title>
 <!------------ ESTILOS  ----------------->
-<link rel="stylesheet" href="css/usuariosClientes.css">
+<link rel="stylesheet" href="css/ventas.css">
 <link rel="stylesheet" href="css/general.css">
-<style type="text/css"> /*ESTILO DE VENTAS*/
-	:root{
-    --cream-brulee: #ffea9e;
-    --buttercup: #f5b00b;
-    --dark-ebony: #3d1f04;
-}
-
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: 0;
-}
-
-ul .ventas{
-    background-color: #f5af0b70;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
-
-.contenedor{
-    display: flex;
-    flex-wrap: wrap;
-
-
-}
-
-form{
-    width: 100%;
-    background-color: #fff5d3;
-    display: flex;
-    padding: 20px;
-    margin: 10px;
-    justify-content: space-around;
-    align-items: center;
-}
-
-form div{
-    display: flex;
-    align-items: center;
-    font-size: 1.1em;
-    flex-wrap: wrap;
-    font-family: 'Montserrat' , sans-serif
-}
-
-form input[type="text"], form input[type="number"]{
-    width: 90%;
-    padding: 10px 20px;
-    margin: 5px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-
-
-form input[type="submit"]{
-    background-color:var(--buttercup);
-    color: black;
-    padding: 10px 20px;
-    margin: 0 10px;
-    border: none;
-    border-radius: 10px;
-    font-weight: bolder;
-    transition: 0.4s;
-    text-decoration: none;
-}
-
-.totales{
-    display: flex;
-    justify-content: end;
-}
-
-
-.final{
-    width: 80%;
-
-   
-    
-}
-</style>
-
+<link rel="stylesheet" href="css/usuariosClientes.css">
 
 
 <!------------ FUENTES ----------------->
@@ -123,7 +43,7 @@ crossorigin="anonymous">
         </a>
     </nav>
     
-    <ul>
+      <ul>
         <li>
             <a href="usuarios.jsp" class="opcion">
                 Usuarios
@@ -172,6 +92,8 @@ crossorigin="anonymous">
         </ul>
 
          <h1>VENTAS</h1>
+         
+         
 
 <%!String nombre_cliente="";
 int cedula=0;
@@ -185,7 +107,7 @@ nombre_cliente= request.getParameter("nombre");
          
 
 <div class="contenedor">
-    <form action="Detalle_ventas" method="post">
+    <form action="Detalle_ventas" method="post" class="cliente">
         <div>
             <label>Cedula:</label>
             <input type="number" name="cedula" value="<%=cedula%>">
@@ -263,7 +185,11 @@ if(request.getParameter("valorTotal")!=null){
 %>
     
 
-    <form action="Detalle_ventas" method="post">
+    <form action="Detalle_ventas" method="post" class="productos">
+    
+    <div class="productosGrande">
+    
+    <div class="individuales uno">
        
         <div><label>Codigo Producto:</label> <input type="text" name="codigo_producto" value="<%=codigo_producto%>"required> </div>
            
@@ -280,13 +206,12 @@ if(request.getParameter("valorTotal")!=null){
 			</div>
             
             
-        
+    </div>    
    
 
-    <hr>
-
-
     
+
+    <div class="individuales">
         
         <div><label>Codigo Producto:</label> <input type="text" name="codigo_producto1" value="<%=codigo_producto1%>"required> </div>
            
@@ -302,9 +227,11 @@ if(request.getParameter("valorTotal")!=null){
         <div><label>Valor venta:</label><input type="text" name="valor_venta1" value="<%=totalVenta1%>"></div>
     
 
-    <hr>
+    
 
-
+    </div>
+    
+    <div class="individuales">
      
        
         <div><label>Codigo Producto:</label> <input type="text" name="codigo_producto2" value="<%=codigo_producto2%>"required> </div>
@@ -323,9 +250,12 @@ if(request.getParameter("valorTotal")!=null){
 
 </div>
 
-<hr>
+</div>
 
-<div class="totales">
+
+
+
+<div class="precios">
     
         <div>
             <label>Valor Total:</label>
@@ -342,18 +272,17 @@ if(request.getParameter("valorTotal")!=null){
             <input type="text" name="totalConIva" value="<%=totalConIva%>">
         </div>
         
-        
+      
         <div>
             
-            <input type="submit" name="calcular" value="calcular">
+            <input type="submit" name="calcular" value="Calcular">
         </div>
 
         <div>
             <input type="submit" name="" value="Confirmar">
         </div>
         
-        
-        
+        </div>
         
         
         
@@ -368,10 +297,11 @@ out.print("<script>alert('"+mensaje+"');</script>");
 %>
 
 
-<footer >
+<!--  <footer >
     <div>
     © 2021 Copyright
     </div>
     </footer>
+    -->
 </body>
 </html>
