@@ -19,7 +19,7 @@ import modelo.ClientesDTO;
 import modelo.Detalle_ventasDAO;
 import modelo.UsuariosDAO;
 import modelo.UsuariosDTO;
-import modelo.ventas;
+import modelo.ventasDTO;
 
 /**
  * Servlet implementation class Reportes
@@ -64,7 +64,7 @@ public class Reportes extends HttpServlet {
 
 			if(op.equals("VENTAS")) {
 				Detalle_ventasDAO pre= new Detalle_ventasDAO();
-				ArrayList<ventas> lista= new ArrayList<>();
+				ArrayList<ventasDTO> lista= new ArrayList<>();
 				lista=pre.cargarLibros();
 				salida.println(datos.toJson(lista));
 			}
