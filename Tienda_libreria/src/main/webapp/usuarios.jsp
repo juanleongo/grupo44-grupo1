@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Book City - Usuarios</title>
 <!------------ ESTILOS  ----------------->
-<link rel="stylesheet" href="css/usuariosClientes.css">
+
 <link rel="stylesheet" href="css/general.css">
 
 
@@ -27,6 +27,254 @@ crossorigin="anonymous">
 
 <!------------- FONTAWESOME ------------->
     <script src="https://kit.fontawesome.com/3d8a730b5e.js" crossorigin="anonymous"></script>
+    <style>
+    
+    :root{
+    --cream-brulee: #ffea9e;
+    --buttercup: #f5b00b;
+    --dark-ebony: #3d1f04;
+}
+
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+}
+
+ul{
+    background-color: var(--cream-brulee);
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+}
+
+ul li{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    transition:0.4s;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+ul li:hover{
+	background-color:#F7C449;
+	
+}
+
+ul li a{
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
+ul li a:hover{
+	color:black;
+}
+
+ul .usuario, ul .clientes, ul .proveedores, ul .productos{
+    background-color: #f5af0b70;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+
+h1{
+    text-align: center;
+    padding: 10px;
+    font-family: 'Montserrat' , sans-serif;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size: 3.5em;
+    color: var(--dark-ebony);
+}
+
+
+.contenedor{
+    display: flex;
+    justify-content:space-around ;
+    margin: 20px;
+}
+
+.izquierda{
+    width: 35%;
+    height: 750px;
+    margin: 30px 50px;
+    background-color: #ffea9eda;
+    border-radius: 20px;
+}
+
+.izquierda h2{
+    text-align: center;
+    font-family: 'Montserrat' , sans-serif;
+    padding: 20px;
+    width:100%;
+    font-size: 2.3em;
+
+}
+
+.izquierda form{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    justify-content: center;
+
+}
+
+
+.izquierda form div{
+
+    margin: 8px  20px;
+    font-size: 1.2em;
+    width:100%;
+    font-family: 'Montserrat' , sans-serif;
+}
+
+.izquierda form div input[type=text], 
+.izquierda form div input[type=email],
+.izquierda form div input[type=password],
+.izquierda form div input[type=number]{
+  width: 100%;
+  padding: 10px 20px;
+  margin: 5px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+
+}
+
+
+.izquierda form .botones{
+    display: flex;
+}
+
+.izquierda form .botones input[type=submit]{
+    background-color:var(--buttercup);
+    color: black;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bolder;
+    transition: 0.4s;
+    text-decoration: none;
+}
+
+
+.izquierda form .botones input[type=submit]:hover{
+    background-color: #a57a14;
+}
+
+
+.busquedaResultados{
+    width:55%;
+    height: 700px;
+    margin: 30px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: center;
+}
+
+.busquedaResultados h4{
+    text-align: center;
+    font-family: 'Montserrat' , sans-serif;
+    padding: 20px;
+    font-size: 2.3em;
+}
+
+
+.busquedaResultados .busqueda form{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    justify-content: center;
+
+
+
+}
+
+
+.busquedaResultados .busqueda form div{
+
+        margin: 8px  20px;
+        font-size: 1.3em;
+        font-family: 'Montserrat' , sans-serif;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+}
+.busquedaResultados .busqueda form div input[type=number]{
+  width: 100%;
+  padding: 10px 20px;
+  margin: 5px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+
+}
+
+
+.busquedaResultados form input[type=submit]{
+    background-color:var(--buttercup);
+    color: black;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bolder;
+    transition: 0.4s;
+    text-decoration: none;
+}
+
+
+.busquedaResultados form input[type=submit]:hover{
+    background-color: #a57a14;
+}
+
+.busquedaResultados textarea{
+
+    width: 100%;
+    height: 300px;
+    font-size: 1.2em;
+    padding: 20px;
+    border: none;
+    margin-top: 30px;
+    background-color: #f3c86221;
+
+
+    resize: none;
+    transition: 0.4s;
+}
+
+
+.busquedaResultados .imagen{
+	display:flex;
+	justify-content: center;
+	width:60%; 
+	height: 60%;
+}
+
+.busquedaResultados .imagen img{
+	object-fit:cover;
+	width:100%;
+	height:100%;
+}
+
+
+footer div{
+    width: 100%;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 10px;
+    font-size: 1.2em;
+}
+    </style>
 </head>
 <body>
 <nav>
@@ -103,7 +351,18 @@ usuario= request.getParameter("usuario");
 email = request.getParameter("email");
 estado="disabled";
 }
-
+%>
+<% 
+if(request.getParameter("men")!=null){
+String mensaje=request.getParameter("men");
+out.print("<script>alert('"+mensaje+"');</script>");
+cedula=0;
+nombre="";
+contraseña="";
+usuario="";
+email="";
+}
+%>
 
 
 %>
@@ -150,12 +409,7 @@ estado="disabled";
         </div>
 
     </div>
-<%
-if(request.getParameter("men")!=null){
-String mensaje=request.getParameter("men");
-out.print("<script>alert('"+mensaje+"');</script>");
-}
-%>
+
 
 <footer >
     <div>

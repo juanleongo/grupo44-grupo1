@@ -8,7 +8,7 @@
 <!------------ ESTILOS  ----------------->
 <link rel="stylesheet" href="css/usuariosClientes.css">
 <link rel="stylesheet" href="css/general.css">
-<link rel="stylesheet" href="css/ventas.css">
+<!--<link rel="stylesheet" href="css/ventas.css">-->
 
 
 <!------------ FUENTES ----------------->
@@ -28,6 +28,162 @@ crossorigin="anonymous">
 
 <!------------- FONTAWESOME ------------->
     <script src="https://kit.fontawesome.com/3d8a730b5e.js" crossorigin="anonymous"></script>
+    <style> :root{
+    --cream-brulee: #ffea9e;
+    --buttercup: #f5b00b;
+    --dark-ebony: #3d1f04;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+}
+
+ul .ventas{
+	    background-color: #f5af0b70;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.contenedor{
+	display: flex;
+	flex-wrap:wrap;
+}
+
+.contenedor form .cliente{
+	width:100%;
+	display:flex;
+	padding:10px;
+	justify-content: space-around;
+	align-content: start;
+}
+
+.contenedor form .cliente div{
+	font-family: 'Montserrat' , sans-serif;
+	font-size: 1.1em;
+}
+
+.contenedor form .cliente div input[type=number],
+.contenedor form .cliente div input[type=text]{
+	width: 100%;
+	padding:5px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+.contenedor form .cliente div input[type=submit]{
+	background-color:var(--buttercup);
+    color: black;
+    padding: 10px 20px;
+    margin: 15px 10px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bolder;
+    transition: 0.4s;
+    text-decoration: none;
+}
+
+.contenedor form .cliente div input[type=submit]:hover{
+	background-color: #a57a14;
+}
+
+.contenedor .productos{
+	width: 100%;
+}
+.contenedor .productosGrande{
+	width:100%;
+	display:flex;
+	padding:10px;
+	justify-content: space-around;
+	align-content: start;
+	
+}
+
+.contenedor .productosGrande .individuales{
+	border: 0.5px solid black;
+	padding: 20px;
+}
+
+
+.contenedor .productosGrande div{
+	font-family: 'Montserrat' , sans-serif;
+	font-size: 1.1em;
+	
+}
+
+.contenedor .productosGrande div input{
+	width: 90%;
+	padding:5px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 5px;
+  
+}
+
+.contenedor .productosGrande div input[type=submit]{
+	width:90%;
+	background-color:var(--buttercup);
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bolder;
+    transition: 0.4s;
+    text-decoration: none;
+}
+
+.contenedor .productosGrande div input[type=submit]:hover{
+	background-color: #a57a14;
+}
+
+
+.contenedor .precios{
+	width: 100%;
+	display: flex;
+	padding: 20px;
+	justify-content: center ;
+	font-family: 'Montserrat' , sans-serif;
+	font-size: 1.1em;
+	flex-wrap: wrap;
+}
+
+.contenedor .precios div{
+	width: 30%;
+	margin: 5px;
+}
+
+.contenedor .precios div input{
+	width: 100%;
+	padding:5px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 5px;
+  
+}
+
+.contenedor .precios div input[type="submit"]{
+	width:80%;
+	background-color:var(--buttercup);
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bolder;
+    transition: 0.4s;
+    text-decoration: none;
+}
+
+
+
+
+.contenedor .precios div input[type="submit"]:hover{
+	background-color: #a57a14;
+}
+    </style>
 </head>
 <body>
 <nav>
@@ -93,8 +249,22 @@ crossorigin="anonymous">
 
          <h1>VENTAS</h1>
 
-<%!String nombre_cliente="";
-String  cedula;
+
+
+
+    
+    
+<%!String nombre_producto="", nombre_producto1="",nombre_producto2="", estado="",nombre_cliente="" ,cedula;
+int codigo_producto, codigo_producto1 ,codigo_producto2,
+        cantidad  , cantidad1,cantidad2,
+        codigoventa=0;;
+double totalventaconiva, totalventaconiva1,totalventaconiva2,
+	   ivacompra , ivacompra1 , ivacompra2,
+	   precio_venta,precio_venta1,precio_venta2,
+       totalventa,totalventa1,totalventa2,
+       valorTotal, totalIva ,totalConIva ;
+
+
 %>         
 <% if(request.getParameter("cedula")!=null){
 cedula=request.getParameter("cedula");
@@ -103,45 +273,6 @@ nombre_cliente= request.getParameter("nombre");
 }
 %> 
          
-
-<div class="contenedor">
-    <form action="Detalle_ventas" method="post">
-    
-    <div class="cliente">
-        <div>
-            <label>Cedula:</label>
-            <input type="number" name="cedula" value="<%=cedula%>">
-        </div>
-        
-        <div>
-            <input type="submit" name="consultar_cli" value="Consultar">
-        </div>
-
-        <div>
-            <label>Cliente:</label>
-            <input type="text" name="nombre_cliente" value="<%=nombre_cliente%>">
-        </div>
-
-        <div>
-            <label>Consec:</label>  <!-- PENDIENTE SABER DATO -->
-            <input type="text" name="" value="">
-        </div>
-   
-
-</div>
-
-    
-    
-<%!String nombre_producto="", nombre_producto1="",nombre_producto2="", estado="";
-int codigo_producto, codigo_producto1 ,codigo_producto2,
-        cantidad  , cantidad1,cantidad2;
-double totalventaconiva, totalventaconiva1,totalventaconiva2,
-	   ivacompra , ivacompra1 , ivacompra2,
-	   precio_venta,precio_venta1,precio_venta2,
-       totalventa,totalventa1,totalventa2,
-       valorTotal, totalIva ,totalConIva ;
-
-%>
 
 <%
 if(request.getParameter("codigo_producto")!=null){
@@ -185,9 +316,37 @@ if(request.getParameter("valorTotal")!=null){
 	totalventa = Double.parseDouble(request.getParameter("totalventa"));
 	totalventa1 = Double.parseDouble(request.getParameter("totalventa1"));
 	totalventa2 = Double.parseDouble(request.getParameter("totalventa2"));
+	codigoventa=Integer.parseInt(request.getParameter("codigoventa"));
 	
 }
 %>
+
+<div class="contenedor">
+    <form action="Detalle_ventas" method="post">
+    
+    <div class="cliente">
+        <div>
+            <label>Cedula:</label>
+            <input type="number" name="cedula" value="<%=cedula%>">
+        </div>
+        
+        <div>
+            <input type="submit" name="consultar_cli" value="Consultar">
+        </div>
+
+        <div>
+            <label>Cliente:</label>
+            <input type="text" name="nombre_cliente" value="<%=nombre_cliente%>">
+        </div>
+
+        <div>
+            <label>Consec:</label> 
+            <input type="text" name="consecutivo" value="<%=codigoventa%>">
+        </div>
+   
+
+</div>
+
     
 <div class="productos">
 

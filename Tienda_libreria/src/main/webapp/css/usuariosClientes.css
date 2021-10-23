@@ -73,9 +73,9 @@ h1{
 }
 
 .izquierda{
-    width: 50%;
+    width: 40%;
     min-height: 300px;
-    margin: 30px;
+    margin: 40px;
     background-color: #ffea9eda;
     border-radius: 20px;
 }

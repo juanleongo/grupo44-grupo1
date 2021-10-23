@@ -65,7 +65,7 @@ public class Productos extends HttpServlet {
 				response.sendRedirect("productos.jsp?men=No se Insertgo los Libros");
 			}
 			}catch(Exception e) {
-				JOptionPane.showMessageDialog(null, "Error de Archivo....."+e);
+				response.sendRedirect("productos.jsp?men=Error en la operacion "+e);
 			}
 			
 			
@@ -90,8 +90,8 @@ public class Productos extends HttpServlet {
 						"&&compra="+compra+"&&venta="+venta);
 				}else
 				 {
-					JOptionPane.showMessageDialog(null, "El Producto no Existe");
-					response.sendRedirect("productos.jsp");
+					response.sendRedirect("productos.jsp?men=El Producto no Existe");
+					
 				}
 			}
 			

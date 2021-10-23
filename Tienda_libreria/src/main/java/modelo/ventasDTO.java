@@ -7,11 +7,21 @@ public class ventasDTO {
 	private double valor_venta;
 	private int cedula_clientes;
 	private int cedula_usuarios;
+	private String nombre_cliente;
 	
 	
+	
+	public ventasDTO(int cedula_clientes, String nombre_cliente ,double total_venta) {
+		
+		this.total_venta = total_venta;
+		this.cedula_clientes = cedula_clientes;
+		this.nombre_cliente= nombre_cliente;
+	}
+
+
 	public ventasDTO(int codigo_venta, double ivaventa, double total_venta, double valor_venta, int cedula_clientes,
 			int cedula_usuarios) {
-		super();
+	
 		this.codigo_venta = codigo_venta;
 		this.ivaventa = ivaventa;
 		this.total_venta = total_venta;
@@ -30,7 +40,7 @@ public class ventasDTO {
 	public ventasDTO( double ivaventa, double total_venta, double valor_venta, int cedula_clientes,
 			int cedula_usuarios) {
 		
-		this.codigo_venta = codigo_venta;
+	
 		this.ivaventa = ivaventa;
 		this.total_venta = total_venta;
 		this.valor_venta = valor_venta;
@@ -96,6 +106,16 @@ public class ventasDTO {
 
 	public void setCedula_usuarios(int cedula_usuarios) {
 		this.cedula_usuarios = cedula_usuarios;
+	}
+
+
+	public String getNombre_cliente() {
+		return nombre_cliente;
+	}
+
+
+	public void setNombre_cliente(String nombre_cliente) {
+		this.nombre_cliente = nombre_cliente;
 	}
 	
 	

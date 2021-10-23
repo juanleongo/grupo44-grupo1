@@ -30,7 +30,7 @@ public class UsuariosDAO {
 			ps.setString(5, usu.getUsuario());
 			resul=ps.executeUpdate()>0;	
 			}catch(SQLException ex) {
-				JOptionPane.showMessageDialog(null,"Error al Insertar el usuario"+ex);
+				//JOptionPane.showMessageDialog(null,"Error al Insertar el usuario"+ex);
 			}
 			return resul;
 		}
@@ -49,7 +49,7 @@ public class UsuariosDAO {
 				usu= new UsuariosDTO(res.getInt(1),res.getString(2),res.getString(3),res.getString(4), res.getString(5));
 			}
 			}catch(SQLException ex) {
-				JOptionPane.showMessageDialog(null,"Error al Consultar el usuario"+ ex);
+				//JOptionPane.showMessageDialog(null,"Error al Consultar el usuario"+ ex);
 			}
 			return usu;
 		}
@@ -68,7 +68,7 @@ public class UsuariosDAO {
 			ps.setInt(5, usu.getCedula());
 			resul=ps.executeUpdate()>0;	
 			}catch(SQLException ex) {
-				JOptionPane.showMessageDialog(null,"Error al Actualizar el usuario"+ex);
+				//JOptionPane.showMessageDialog(null,"Error al Actualizar el usuario"+ex);
 			}
 			return resul;
 		}
@@ -81,14 +81,14 @@ public class UsuariosDAO {
 				resul=ps.executeUpdate()>0;
 				
 			}catch(SQLException Q) {
-				JOptionPane.showMessageDialog(null, "Error de eliminacion "+Q);
+				//JOptionPane.showMessageDialog(null, "Error de eliminacion "+Q);
 			}
 			return resul;
 				
 			}
 		
 		
-		public ArrayList<UsuariosDTO> cargarLibros(){
+		public ArrayList<UsuariosDTO> cargarUsuarios(){
 			
 			UsuariosDTO lib=null;
 			ArrayList<UsuariosDTO> lista= new ArrayList<>();
@@ -101,7 +101,7 @@ public class UsuariosDAO {
 				lista.add(lib);
 			}
 			}catch(SQLException ex) {
-				JOptionPane.showMessageDialog(null,"Error al consultar el Cliente" +ex);
+				//JOptionPane.showMessageDialog(null,"Error al consultar el Cliente" +ex);
 			}
 			 return lista;
 		}

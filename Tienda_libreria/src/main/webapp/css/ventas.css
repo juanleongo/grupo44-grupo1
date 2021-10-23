@@ -5,7 +5,9 @@
     --buttercup: #f5b00b;
     --dark-ebony: #3d1f04;
 }
-
+body {
+	background-color : blue;
+}
 *{
     padding: 0;
     margin: 0;

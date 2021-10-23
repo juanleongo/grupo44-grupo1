@@ -37,6 +37,12 @@ crossorigin="anonymous">
     </nav>
     
     <section>
+ <%
+if(request.getParameter("men")!=null){
+String mensaje=request.getParameter("men");
+out.print("<script>alert('"+mensaje+"');</script>");
+}
+%>
             <img src="img/fondo.jpg" alt="">
 
             <div class="izquierda">
@@ -76,7 +82,7 @@ crossorigin="anonymous">
        
         </div>
     </section>
-    
+
      <footer >
             <div>
            © 2021 Copyright

@@ -33,7 +33,7 @@ public class Detalle_ventasDAO {
 			deta = new ProductosDTO(res.getInt(1),res.getString(2),res.getDouble(3),res.getDouble(4));
 		}
 		}catch(SQLException ex) {
-			JOptionPane.showMessageDialog(null,"Error al Consultar el productos"+ ex);
+			//JOptionPane.showMessageDialog(null,"Error al Consultar el productos"+ ex);
 		}
 		return deta;
 		
@@ -53,7 +53,7 @@ public class Detalle_ventasDAO {
     		cli= new ClientesDTO(res.getInt(1),res.getString(2));
     	}
     	}catch(SQLException ex) {
-    		JOptionPane.showMessageDialog(null, "Error al Consultar"+ ex);
+    		//JOptionPane.showMessageDialog(null, "Error al Consultar"+ ex);
     	}
     	return cli;
     }
@@ -62,23 +62,7 @@ public class Detalle_ventasDAO {
 	
 		
 	
-	public ArrayList<ventasDTO> cargarLibros(){
-		
-		ventasDTO lib=null;
-		ArrayList<ventasDTO> lista= new ArrayList<>();
-		try {
-		String sql="select * from ventas";	
-		ps=conec.prepareStatement(sql);
-		res=ps.executeQuery();
-		while(res.next()) {
-			lib= new ventasDTO(res.getInt(1),res.getDouble(2),res.getDouble(3),res.getDouble(4),res.getInt(5),res.getInt(6));
-			lista.add(lib);
-		}
-		}catch(SQLException ex) {
-			JOptionPane.showMessageDialog(null,"Error al consultar la tabla de ventas" +ex);
-		}
-		 return lista;
-	}  
+	
 	
 	
 	

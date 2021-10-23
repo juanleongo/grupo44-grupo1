@@ -52,13 +52,13 @@ public class Detalle_ventas extends HttpServlet {
 				nombre_producto = deta.getNombre_productos();
 				precio_venta = deta.getPrecio_venta();
 				ivacompra = deta.getIvacompra();
+				
 				response.sendRedirect("ventas.jsp?codigo_producto=" + codigo_producto + "&&nombre_producto=" + nombre_producto
 						+ "&&precio_venta=" + precio_venta+ "&&ivacompra="+ ivacompra);
 			} else {
 
-				JOptionPane.showMessageDialog(null, "El producto no Existe");
+				response.sendRedirect("ventas.jsp?men=El Producto no Existe");
 
-				response.sendRedirect("ventas.jsp");
 			}
 		}
 
@@ -74,14 +74,13 @@ public class Detalle_ventas extends HttpServlet {
 				nombre_producto1 = deta.getNombre_productos();
 				precio_venta1 = deta.getPrecio_venta();
 				ivacompra1 = deta.getIvacompra();
+				
 				response.sendRedirect("ventas.jsp?codigo_producto1=" + codigo_producto1 + "&&nombre_producto1="
 						+ nombre_producto1 + "&&precio_venta1=" + precio_venta1
 						+ "&&ivacompra1="+ ivacompra1);
 			} else {
+				response.sendRedirect("ventas.jsp?men=El Producto no Existe");
 
-				JOptionPane.showMessageDialog(null, "El producto no Existe");
-
-				response.sendRedirect("ventas.jsp");
 			}
 		}
 		if (request.getParameter("consultar2") != null) {
@@ -99,9 +98,8 @@ public class Detalle_ventas extends HttpServlet {
 					+"&&precio_venta2="+precio_venta2 +"&&ivacompra2="+ ivacompra2);
 			} else {
 
-				JOptionPane.showMessageDialog(null, "El producto no Existe");
+				response.sendRedirect("ventas.jsp?men=El Producto no Existe");
 
-				response.sendRedirect("ventas.jsp");
 			}
 		}
 
@@ -114,8 +112,7 @@ public class Detalle_ventas extends HttpServlet {
 				nombre = cli.getNombre();
 				response.sendRedirect("ventas.jsp?cedula=" + cedula + "&&nombre=" + nombre);
 			} else {
-				JOptionPane.showMessageDialog(null, "El Cliente No existe");
-				response.sendRedirect("ventas.jsp");
+				response.sendRedirect("ventass.jsp?men=El cliente no existe");
 			}
 
 		}
@@ -161,14 +158,14 @@ public class Detalle_ventas extends HttpServlet {
 			totalventaconiva1 = totalVenta1 + ivaProducto1 ;
 			totalventaconiva2 = totalVenta2 + ivaProducto2;
 			
-			
+			int codigoventa = ventadao.consultarCodigoventa();
 			
 			valorTotal = totalVenta+ totalVenta1+totalVenta2;
 			totalIva = ivaProducto +ivaProducto1 + ivaProducto2;
 			totalConIva = valorTotal + totalIva;
 			
 			response.sendRedirect("ventas.jsp?cantidad="+cantidad +"&&cantidad1="+cantidad1+"&&cantidad2="+cantidad2+"&&totalventa="+totalVenta+"&&totalventa1="+totalVenta1+"&&totalventa2="+totalVenta2+
-					"&&totalventaconiva="+totalventaconiva+"&&totalventaconiva1="+totalventaconiva1+"&&totalventaconiva2="+totalventaconiva2+"&&valorTotal="+valorTotal+"&&totalIva="+totalIva+"&&totalConIva="+totalConIva);
+					"&&totalventaconiva="+totalventaconiva+"&&totalventaconiva1="+totalventaconiva1+"&&totalventaconiva2="+totalventaconiva2+"&&valorTotal="+valorTotal+"&&totalIva="+totalIva+"&&totalConIva="+totalConIva+"&&codigoventa="+codigoventa);
 					
 	}else {
 		
@@ -176,57 +173,60 @@ public class Detalle_ventas extends HttpServlet {
 	}
 		
 	if (request.getParameter("confirmar") != null)	{
-		int  cedulaUsuario = 12345;
-		int  cedulaCliente0 = Integer.parseInt(request.getParameter("cedula"));
-		int codigo_producto , codigo_producto1, codigo_producto2,
-		cantidad, cantidad1,cantidad2,codigoventa;
-		double  
 		
-		totalventaconiva = 0,totalventaconiva1 = 0,totalventaconiva2 = 0,
-		totalVenta = 0 , totalVenta1 = 0 , totalVenta2=0,
-		ivaProducto = 0,ivaProducto1 = 0,ivaProducto2 = 0,
-		valorTotal =0, totalIva= 0, totalConIva = 0;
+		try {
+			int  cedulaUsuario = 12345;
+			int  cedulaCliente0 = Integer.parseInt(request.getParameter("cedula"));
+			int codigo_producto , codigo_producto1, codigo_producto2,
+			cantidad, cantidad1,cantidad2,codigoventa=0;
+			double  
+			
+			totalventaconiva = 0,totalventaconiva1 = 0,totalventaconiva2 = 0,
+			totalVenta = 0 , totalVenta1 = 0 , totalVenta2=0,
+			ivaProducto = 0,ivaProducto1 = 0,ivaProducto2 = 0,
+			valorTotal =0, totalIva= 0, totalConIva = 0;
+			
+			
+			
+			totalIva = Double.parseDouble(request.getParameter("totalIva"));
+			valorTotal = Double.parseDouble(request.getParameter("valorTotal"));
+			totalConIva = Double.parseDouble(request.getParameter("totalConIva"));
+			
+			cantidad = Integer.parseInt(request.getParameter("cantidad"));
+			cantidad1 = Integer.parseInt(request.getParameter("cantidad1"));
+			cantidad2 = Integer.parseInt(request.getParameter("cantidad2"));
+			
+			ivaProducto =  Double.parseDouble(request.getParameter("ivap")); 
+			ivaProducto1 = Double.parseDouble(request.getParameter("ivap1")) ;
+			ivaProducto2 =  Double.parseDouble(request.getParameter("ivap2"));
+			
+			codigo_producto = Integer.parseInt(request.getParameter("codigo_producto"));
+			codigo_producto1 = Integer.parseInt(request.getParameter("codigo_producto1"));
+			codigo_producto2 = Integer.parseInt(request.getParameter("codigo_producto2"));
+			
+			totalventaconiva = Double.parseDouble(request.getParameter("valor_venta")); 
+			
+			totalventaconiva1 =Double.parseDouble(request.getParameter("valor_venta1"));
+			totalventaconiva2 = Double.parseDouble(request.getParameter("valor_venta2"));
+			
+			totalVenta = Double.parseDouble(request.getParameter("totalventa"));
+			totalVenta1 = Double.parseDouble(request.getParameter("totalventa1"));
+			totalVenta2 = Double.parseDouble(request.getParameter("totalventa2"));
+			
+			
+			ventasDTO venta = new ventasDTO( totalIva, valorTotal, totalConIva, cedulaCliente0, cedulaUsuario );
+								
+			Detalle_ventasDTO pruductoDTO1 = new Detalle_ventasDTO(cantidad , codigo_producto,codigoventa, totalventaconiva, totalVenta, ivaProducto);
+			Detalle_ventasDTO pruductoDTO2 = new Detalle_ventasDTO(cantidad1 , codigo_producto1,codigoventa, totalventaconiva1, totalVenta1, ivaProducto1);
+			Detalle_ventasDTO pruductoDTO3 = new Detalle_ventasDTO(cantidad2 , codigo_producto2,codigoventa, totalventaconiva2, totalVenta2, ivaProducto2);
+			ventadao.crearVenta(venta, pruductoDTO1, pruductoDTO2, pruductoDTO3);
+			response.sendRedirect("ventas.jsp?men=Venta creada con exito");
+			
+		}catch (Exception ex) {
+			response.sendRedirect("ventas.jsp?men=El error en la operacion"+ ex);
+		}
+			
 		
-		
-		
-		totalIva = Double.parseDouble(request.getParameter("totalIva"));
-		valorTotal = Double.parseDouble(request.getParameter("valorTotal"));
-		totalConIva = Double.parseDouble(request.getParameter("totalConIva"));
-		
-		cantidad = Integer.parseInt(request.getParameter("cantidad"));
-		cantidad1 = Integer.parseInt(request.getParameter("cantidad1"));
-		cantidad2 = Integer.parseInt(request.getParameter("cantidad2"));
-		
-		ivaProducto =  Double.parseDouble(request.getParameter("ivap")); 
-		ivaProducto1 = Double.parseDouble(request.getParameter("ivap1")) ;
-		ivaProducto2 =  Double.parseDouble(request.getParameter("ivap2"));
-		
-		codigo_producto = Integer.parseInt(request.getParameter("codigo_producto"));
-		codigo_producto1 = Integer.parseInt(request.getParameter("codigo_producto1"));
-		codigo_producto2 = Integer.parseInt(request.getParameter("codigo_producto2"));
-		//JOptionPane.showMessageDialog(null, cedulaCliente0);
-		
-		totalventaconiva = Double.parseDouble(request.getParameter("valor_venta")); 
-		
-		totalventaconiva1 =Double.parseDouble(request.getParameter("valor_venta1"));
-		totalventaconiva2 = Double.parseDouble(request.getParameter("valor_venta2"));
-		
-		totalVenta = Double.parseDouble(request.getParameter("totalventa"));
-		totalVenta = Double.parseDouble(request.getParameter("totalventa1"));
-		totalVenta = Double.parseDouble(request.getParameter("totalventa2"));
-		
-		//ya se puede insertar en la tabla de ventas
-		//falta traer el codigo de venta y registrarlo en la tabla de detalles
-		
-		
-		//codigoventa=ventadao.consultarCodigoventa(null, codigoventa);
-		ventasDTO venta = new ventasDTO( totalIva, valorTotal, totalConIva, cedulaCliente0, cedulaUsuario );
-		ventadao.crearVenta(venta);
-		/*
-		Detalle_ventasDTO pruductoDTO1 = new Detalle_ventasDTO(cantidad , codigo_producto, 0, totalventaconiva, totalVenta, ivaProducto);
-		Detalle_ventasDTO pruductoDTO2 = new Detalle_ventasDTO(cantidad1 , codigo_producto1, 0, totalventaconiva1, totalVenta1, ivaProducto1);
-		Detalle_ventasDTO pruductoDTO3 = new Detalle_ventasDTO(cantidad2 , codigo_producto2, 0, totalventaconiva2, totalVenta2, ivaProducto2);
-		*/
 		
 	}
 

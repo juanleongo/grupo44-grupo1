@@ -31,7 +31,7 @@ import controlador.Conexion;
 			ps.setString(5, lib.getTelefono());
 			resul=ps.executeUpdate()>0;
 			}catch(SQLException ex) {
-			    JOptionPane.showMessageDialog(null, "Error al insertar el cliente"+ex);
+			    //JOptionPane.showMessageDialog(null, "Error al insertar el cliente"+ex);
 		    }
 		    return resul;   
 	     }
@@ -48,7 +48,7 @@ import controlador.Conexion;
 	    		lib= new ClientesDTO(res.getInt(1),res.getString(2),res.getString(3),res.getString(4), res.getString(5));
 	    	}
 	    	}catch(SQLException ex) {
-	    		JOptionPane.showMessageDialog(null, "Error al Consultar"+ ex);
+	    		//JOptionPane.showMessageDialog(null, "Error al Consultar"+ ex);
 	    	}
 	    	return lib;
 	    }
@@ -65,7 +65,7 @@ import controlador.Conexion;
 			ps.setInt(5, lib.getCedula());
 			resul=ps.executeUpdate()>0;
 			}catch(SQLException ex) {
-				JOptionPane.showMessageDialog(null,"Error al Actualizar el cliente"+ex);
+				//JOptionPane.showMessageDialog(null,"Error al Actualizar el cliente"+ex);
 			}
 			return resul;
 		}
@@ -78,14 +78,14 @@ import controlador.Conexion;
 				resul=ps.executeUpdate()>0;
 				
 			}catch(SQLException Q) {
-				JOptionPane.showMessageDialog(null, "Error de eliminacion"+Q);
+				//JOptionPane.showMessageDialog(null, "Error de eliminacion"+Q);
 			}
 			return resul;
 				
 			}
 	    
 	    
-	    public ArrayList<ClientesDTO> cargarLibros(){
+	    public ArrayList<ClientesDTO> cargarClientes(){
 			
 			ClientesDTO lib=null;
 			ArrayList<ClientesDTO> lista= new ArrayList<>();
@@ -98,7 +98,7 @@ import controlador.Conexion;
 				lista.add(lib);
 			}
 			}catch(SQLException ex) {
-				JOptionPane.showMessageDialog(null,"Error al consultar El Cliente" +ex);
+				//JOptionPane.showMessageDialog(null,"Error al consultar El Cliente" +ex);
 			}
 			 return lista;
 		}  

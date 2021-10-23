@@ -10,7 +10,7 @@
 <!------------ ESTILOS  ----------------->
 <link rel="stylesheet" href="css/usuariosClientes.css">
 <link rel="stylesheet" href="css/general.css">
-<link rel="stylesheet" href="css/reportes.css">
+
 
 
 
@@ -31,6 +31,85 @@ crossorigin="anonymous">
 
 <!------------- FONTAWESOME ------------->
     <script src="https://kit.fontawesome.com/3d8a730b5e.js" crossorigin="anonymous"></script>
+    <style >:root{
+    --cream-brulee: #ffea9e;
+    --buttercup: #f5b00b;
+    --dark-ebony: #3d1f04;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+}
+
+.contenedor{
+	height:100vh;
+	width:100%;
+	display:flex;
+	flex-wrap: wrap;
+	align-content: start;
+	margin:0px;
+	
+}
+
+
+.listas{
+	width:100%;
+	display:flex;
+	justify-content:space-around ;
+	height: 60px;
+	
+}
+
+.listas div{
+	height: 100%;
+	font-size:1.2em;
+	background-color:var(--buttercup);
+    color: black;
+    padding: 0px 20px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bolder;
+    transition: 0.4s;
+    text-decoration: none;
+    display:flex;
+}
+
+
+.listas div button{
+	background-color:var(--buttercup);
+	border: none;
+}
+
+
+.tablaLista{
+	width: 80%;
+	margin:50px auto;
+
+
+}
+
+.tablaLista table{
+	width:100%;
+	
+}
+.tablaLista table .cssss th{
+	text-align: center;
+	font-size:1.4em;
+	font-family: 'Montserrat' , sans-serif;
+	background:#f9d37b;
+	border:0.5px solid black;
+	
+}
+
+.tablaLista table td{
+	font-family: 'Montserrat' , sans-serif;
+	background-color:#fbe2aa;
+	font-size:1.2em;
+	border:0.5px solid black;
+	
+}</style>
 
 <title>Book City - Reportes</title>
 <style type="text/css">
@@ -40,6 +119,8 @@ crossorigin="anonymous">
     border-bottom-left-radius: 10px;	
 	}
 </style>
+	
+    
 </head>
 <body>
 <nav>
@@ -102,8 +183,12 @@ crossorigin="anonymous">
         </li>
             
         </ul>
+        
+   
     <div class="contenedor">
 	<div class="listas">
+	
+	 
 
 		<div><button class="listaUsuarios">Lista usuarios</button></div>
 		
@@ -116,9 +201,13 @@ crossorigin="anonymous">
 	<div class="tablaLista">
 <table id="tabla">	
 </table>
-</div>
+
 
 </div>
+
+
+</div>
+
 
 <footer >
     <div>

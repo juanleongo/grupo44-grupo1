@@ -25,7 +25,7 @@ public boolean Cargar_Productoscsv(String Ruta) {
 		ps=conec.prepareStatement(sql);
 		resul=ps.executeUpdate()>0;
 		}catch(SQLException ex) {
-			JOptionPane.showMessageDialog(null,"Error al Cargar libros:   "+ex);
+			//JOptionPane.showMessageDialog(null,"Error al Cargar libros:   "+ex);
 		}
 		
 		return resul;
@@ -48,7 +48,7 @@ public ProductosDTO Buscar_Producto(int codigo_producto) {
 		pro= new ProductosDTO(res.getInt(1),res.getDouble(2),res.getInt(3),res.getString(4), res.getDouble(5), res.getDouble(6));
 	}
 	}catch(SQLException ex) {
-		JOptionPane.showMessageDialog(null, "Error al Consultar"+ ex);
+		//JOptionPane.showMessageDialog(null, "Error al Consultar"+ ex);
 	}
 	return pro;
 }
@@ -64,7 +64,7 @@ public boolean Actualiza_Productos(ProductosDTO pro) {
 	ps.setInt(3, pro.getCodigo_producto());
 	resul=ps.executeUpdate()>0;
 	}catch(SQLException ex) {
-		JOptionPane.showMessageDialog(null,"Error al Actualizar el producto"+ex);
+		//JOptionPane.showMessageDialog(null,"Error al Actualizar el producto"+ex);
 	}
 	return resul;
 }
